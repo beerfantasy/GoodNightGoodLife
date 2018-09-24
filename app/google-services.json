@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "716706758461",
+    "firebase_url": "https://my-project-1528187555041.firebaseio.com",
+    "project_id": "my-project-1528187555041",
+    "storage_bucket": "my-project-1528187555041.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716706758461:android:55f039230bb984a3",
+        "android_client_info": {
+          "package_name": "com.kmutt.cs.goodnightgoodlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716706758461-58o58fi9cho896uuepe8h9698p1qgo57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0LiEKGJvHvOWKrmgM10Gt6aQxOIEtkZY"
+        },
+        {
+          "current_key": "AIzaSyB0LiEKGJvHvOWKrmgM10Gt6aQxOIEtkZY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

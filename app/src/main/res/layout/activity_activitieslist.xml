@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp"
+        android:text="List of Activity"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/read_book"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27sp"
+        android:layout_marginTop="164sp"
+        android:background="@drawable/my_button_bg"
+        android:text="Read Book"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/listen_music"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/read_book"
+        android:layout_marginEnd="27sp"
+        android:background="@drawable/my_button_bg"
+        android:text="Listen Music"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/yoga"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignStart="@+id/listen_music"
+        android:layout_below="@+id/listen_music"
+        android:layout_marginTop="40sp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/my_button_bg"
+        android:text="Yoga"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/meditation"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignStart="@+id/read_book"
+        android:layout_alignEnd="@+id/read_book"
+        android:layout_alignTop="@+id/yoga"
+        android:background="@drawable/my_button_bg"
+        android:text="Meditation"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/massage"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignStart="@+id/read_book"
+        android:background="@drawable/my_button_bg"
+        android:layout_below="@+id/meditation"
+        android:layout_marginTop="40sp"
+        android:text="Massage"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Sun Sep 23 21:01:31 ICT 2018
+1.base=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/0
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=lib/armeabi-v7a/libmuse_android.so
+0.set=NATIVE_RESOURCE
+0.base=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/stripDebugSymbol/debug/0
+1.path=classes.dex
