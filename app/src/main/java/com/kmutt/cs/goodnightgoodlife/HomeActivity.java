@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
-    public static String authCode = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VEpaWEYiLCJhdWQiOiIyMkNaUE4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd3BybyB3bnV0IHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNTM3NjI2NTE4LCJpYXQiOjE1Mzc1OTc3MTh9.F1f_tUyRYffWKCq97Zj-Uk5skJ3BsBrurFWoMKgiZps";
+    public static String authCode = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VEpaWEYiLCJhdWQiOiIyMkNaUE4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd251dCB3cHJvIHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNTM4NDU3OTQ1LCJpYXQiOjE1Mzc4NTMxNDV9.h16WvTMYqcMjg3Rn4uSEDpHr8Gd9BToY2RnExnMxkmk";
     public static String[] date_of_sleep;
     public static String[] deep_sleep;
     public static long[] sleep_time;

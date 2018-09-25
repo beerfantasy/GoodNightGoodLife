@@ -1,4 +1,4 @@
-#Sat Sep 22 14:26:08 ICT 2018
-base.0=/Users/New/AndroidStudioProjects/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/4
+#Tue Sep 25 12:35:32 ICT 2018
+base.0=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/4
 path.0=classes.dex
 renamed.0=classes.dex

@@ -1,5 +1,6 @@
 package com.kmutt.cs.goodnightgoodlife;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,8 @@ public class ChangeAuthCodeActivity extends AppCompatActivity {
         saveAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivity.authCode = (String) authInput.getText();
+                HomeActivity.authCode = authInput.getText()+"";
+                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
             }
         });
     }
