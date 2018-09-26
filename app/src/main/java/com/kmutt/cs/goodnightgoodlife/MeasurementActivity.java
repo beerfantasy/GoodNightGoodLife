@@ -66,22 +66,28 @@ public class MeasurementActivity extends AppCompatActivity {
     private boolean start_act;
     private static DecimalFormat df2 = new DecimalFormat(".##");
 
+    // Bluetooth adapter for bluetooth connection and permission for Android 6.0 or later
     private BluetoothAdapter mBluetoothAdapter;
     private static final int MY_PERMISSIONS_REQUEST_BLUETOOTH = 0;
     private static final int REQUEST_ENABLE_BT = 1;
 
-    private final double[] eegBuffer = new double[6];
-    private boolean eegStale;
+//    private final double[] eegBuffer = new double[6];
+//    private boolean eegStale;
     private final double[] thetaBuffer = new double[6];
     private boolean thetaStale;
-    private final double[] accelBuffer = new double[3];
-    private boolean accelStale;
-    private Handler handler = new Handler();
+//    private final double[] accelBuffer = new double[3];
+//    private boolean accelStale;
+    //private Handler handler = new Handler();
+    // Spinner for containing available Muse
     private ArrayAdapter<String> spinnerAdapter;
+    // Firebase instance
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    // Hashmap for firebase
     Map<String, Object> theta = new HashMap<>();
-    double avg = 0;
+    // Variable for firebase
+    private double avg = 0;
 
+    //Countdown timer for ticking the graph and streaming data
     CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
         @Override
         public void onTick(long l) {
@@ -105,9 +111,11 @@ public class MeasurementActivity extends AppCompatActivity {
         manager = MuseManagerAndroid.getInstance();
         manager.setContext(this);
 
+        // Weakreference to prevent memory leak and to refer to some inner class
         WeakReference<MeasurementActivity> weakActivity =
                 new WeakReference<>(this);
 
+        // Bluetooth connection
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = bluetoothManager.getAdapter();
@@ -126,6 +134,7 @@ public class MeasurementActivity extends AppCompatActivity {
             checkConnect();
         }
 
+        // Register a listener to receive connection packet from a Muse
         connectionListener = new ConnectionListener(weakActivity);
         // Register a listener to receive data from a Muse.
         dataListener = new DataListener(weakActivity);
@@ -213,7 +222,6 @@ public class MeasurementActivity extends AppCompatActivity {
                     // Unregister all prior listeners and register our data listener to
                     // receive the MuseDataPacketTypes we are interested in.  If you do
                     // not register a listener for a particular data type, you will not
-                    // receive data packets of that type.
                     // receive data packets of that type.
                     muse.unregisterAllListeners();
                     muse.registerConnectionListener(connectionListener);
