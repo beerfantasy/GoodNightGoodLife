@@ -165,12 +165,12 @@ public class MeasurementActivity extends AppCompatActivity {
                 start.setVisibility(View.VISIBLE);
                 start_act = false;
                 theta.put("avg", avg);
-                db.collection("avg")
-                        .add(theta)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                db.collection("avg").document("avg")
+                        .set(theta)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "DocumentSnapshot successfully written!");
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
