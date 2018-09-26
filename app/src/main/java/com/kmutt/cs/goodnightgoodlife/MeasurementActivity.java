@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -33,12 +34,18 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import com.choosemuse.libmuse.*;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.List;
 
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MeasurementActivity extends AppCompatActivity {
@@ -71,6 +78,9 @@ public class MeasurementActivity extends AppCompatActivity {
     private boolean accelStale;
     private Handler handler = new Handler();
     private ArrayAdapter<String> spinnerAdapter;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Map<String, Object> theta = new HashMap<>();
+    double avg = 0;
 
     CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
         @Override
@@ -154,6 +164,21 @@ public class MeasurementActivity extends AppCompatActivity {
                 finish.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.VISIBLE);
                 start_act = false;
+                theta.put("avg", avg);
+                db.collection("avg")
+                        .add(theta)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
             }
         });
 
@@ -266,8 +291,8 @@ public class MeasurementActivity extends AppCompatActivity {
     }
 
     private void addEntry() {
-        double ran;
-        double avg;
+        double ran = 0;
+
         LineData data = chart.getData();
 
         if (data != null) {
@@ -281,7 +306,18 @@ public class MeasurementActivity extends AppCompatActivity {
             Log.e(TAG, "theta 1 "+thetaBuffer[1]);
             Log.e(TAG, "theta 2 "+thetaBuffer[2]);
             Log.e(TAG, "theta 3 "+thetaBuffer[3]);
-            ran = ((thetaBuffer[0]+thetaBuffer[1]+thetaBuffer[2]+thetaBuffer[3])*100) / 4;
+
+            double theta_one = 0;
+            double theta_two = 0;
+            double theta_three = 0;
+            double theta_four = 0;
+
+            theta_one = (thetaBuffer[0]+1)*50;
+            theta_two = (thetaBuffer[1]+1)*50;
+            theta_three = (thetaBuffer[2]+1)*50;
+            theta_four = (thetaBuffer[3]+1)*50;
+
+            ran = (theta_one+theta_two+theta_three+theta_four)/4;
             data.addEntry(new Entry(set.getEntryCount(), (float) ran),0);
             sum += ran;
             avg = sum/set.getEntryCount();
