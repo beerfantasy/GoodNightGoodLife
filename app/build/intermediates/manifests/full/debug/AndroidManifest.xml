@@ -31,7 +31,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.kmutt.cs.goodnightgoodlife.Login"
@@ -49,6 +48,7 @@
         <activity android:name="com.kmutt.cs.goodnightgoodlife.SignUpActivity" />
         <activity android:name="com.kmutt.cs.goodnightgoodlife.MeasurementActivity" />
         <activity android:name="com.kmutt.cs.goodnightgoodlife.ChangeAuthCodeActivity" />
+        <activity android:name="com.kmutt.cs.goodnightgoodlife.ActivityLogActivity" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

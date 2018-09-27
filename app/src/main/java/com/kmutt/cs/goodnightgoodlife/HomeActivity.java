@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
-    public static String authCode = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VEpaWEYiLCJhdWQiOiIyMkNaUE4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd251dCB3cHJvIHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNTM4NDU3OTQ1LCJpYXQiOjE1Mzc4NTMxNDV9.h16WvTMYqcMjg3Rn4uSEDpHr8Gd9BToY2RnExnMxkmk";
+    public static String authCode = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VEpaWEYiLCJhdWQiOiIyMkNaUE4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd3BybyB3bnV0IHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNTM4NDU3OTQ1LCJpYXQiOjE1Mzc5Mzc2NDZ9.L-mfSrQalLlljdALUf4oWy-2e0hQimHYCUHS2DY9_BQ";
     public static String[] date_of_sleep;
     public static String[] deep_sleep;
     public static long[] sleep_time;
@@ -57,6 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     private Long long_DSD;
     private long deep_sleep_per;
     private long sleep_per;
+
+    public static String currentDate;
 
     float sleep[] = new float[2];
     String label[] = {"Deep Sleep" ,"Other stages"};
@@ -97,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
         chart.setNoDataTextColor(Color.WHITE);
 
         Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
         TextView textViewDate = findViewById(R.id.text_view_date);
         textViewDate.setText(currentDate);
 

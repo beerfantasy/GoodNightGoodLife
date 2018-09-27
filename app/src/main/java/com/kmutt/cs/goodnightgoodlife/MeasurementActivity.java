@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -33,12 +34,24 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import com.choosemuse.libmuse.*;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MeasurementActivity extends AppCompatActivity {
@@ -48,6 +61,8 @@ public class MeasurementActivity extends AppCompatActivity {
     private Muse muse;
     private ConnectionListener connectionListener;
     private DataListener dataListener;
+
+    int timer;
 
     double sum;
     Button start;
@@ -71,12 +86,18 @@ public class MeasurementActivity extends AppCompatActivity {
     private boolean accelStale;
     private Handler handler = new Handler();
     private ArrayAdapter<String> spinnerAdapter;
+    double ran = 0;
+
+    private String avg_relax_data = "";
+    double avg = 0;
+    Map<String, Object> user = new HashMap<>();
 
     CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
         @Override
         public void onTick(long l) {
             if (start_act) {
                 addEntry();
+                timer++;
             }
         }
 
@@ -91,6 +112,12 @@ public class MeasurementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurement);
         setTitle("Relaxation Measurement");
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        final String formattedDate = df.format(c);
+
+
 
         manager = MuseManagerAndroid.getInstance();
         manager.setContext(this);
@@ -154,6 +181,20 @@ public class MeasurementActivity extends AppCompatActivity {
                 finish.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.VISIBLE);
                 start_act = false;
+                user.put("avg", avg);
+                db.collection("avg2").document(formattedDate).set(user);
+
+                //save data to array
+                /*
+                logList.add(
+                        new com.kmutt.cs.goodnightgoodlife.Log(
+                                HomeActivity.currentDate,
+                                act,
+                                avg_relax_data,
+                                timer
+                        )
+                );
+                */
             }
         });
 
@@ -210,7 +251,6 @@ public class MeasurementActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     protected void onPause() {
@@ -266,8 +306,7 @@ public class MeasurementActivity extends AppCompatActivity {
     }
 
     private void addEntry() {
-        double ran;
-        double avg;
+
         LineData data = chart.getData();
 
         if (data != null) {
@@ -277,15 +316,62 @@ public class MeasurementActivity extends AppCompatActivity {
                 set = createSet();
                 data.addDataSet(set);
             }
-            Log.e(TAG, "theta 0 "+thetaBuffer[0]);
-            Log.e(TAG, "theta 1 "+thetaBuffer[1]);
-            Log.e(TAG, "theta 2 "+thetaBuffer[2]);
-            Log.e(TAG, "theta 3 "+thetaBuffer[3]);
-            ran = ((thetaBuffer[0]+thetaBuffer[1]+thetaBuffer[2]+thetaBuffer[3])*100) / 4;
+            double theta_one = 0;
+            double theta_two = 0;
+            double theta_three = 0;
+            double theta_four = 0;
+
+            theta_one = (thetaBuffer[0]+1)*50;
+            theta_two = (thetaBuffer[1]+1)*50;
+            theta_three = (thetaBuffer[2]+1)*50;
+            theta_four = (thetaBuffer[3]+1)*50;
+            Log.e("one", ""+theta_one);
+            Log.e("two", ""+theta_two);
+            Log.e("three", ""+theta_three);
+            Log.e("four", ""+theta_four);
+
+//            Double theta_one_tmp = new Double(theta_one);
+//            Log.e("one_tmp" , ""+theta_one_tmp.doubleValue());
+//            Double theta_two_tmp = new Double(theta_two);
+//            Log.e("two_tmp", ""+theta_two_tmp.doubleValue());
+//            Double theta_three_tmp = new Double(theta_three);
+//            Log.e("three_tmp", ""+theta_three_tmp.doubleValue());
+//            Double theta_four_tmp = new Double(theta_four);
+//            Log.e("four_tmp", ""+theta_four_tmp.doubleValue());
+
+            if(!Double.isNaN(theta_one) || !Double.isNaN(theta_two) || !Double.isNaN(theta_three) || !Double.isNaN(theta_four)) {
+                int divide = 4;
+                if(Double.isNaN(theta_one)){
+                    theta_one = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_two)){
+                    theta_two = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_three)){
+                    theta_three = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_four)){
+                    theta_four = 0;
+                    divide -= 1;
+                }
+                if(divide > 0) {
+                    ran = (theta_one + theta_two + theta_three + theta_four) / divide;
+                }
+                Log.e("ran", ""+ran);
+            }
             data.addEntry(new Entry(set.getEntryCount(), (float) ran),0);
             sum += ran;
-            avg = sum/set.getEntryCount();
+            Log.e("sum", ""+sum);
+//            Double sumTmp = new Double(sum);
+            if(!Double.isNaN(sum)) {
+                avg = (sum / set.getEntryCount())-50;
+                Log.e("avg", ""+avg);
+            }
             avg_relax.setText("Average Relaxation : " + df2.format(avg) + "%");
+            avg_relax_data = df2.format(avg) + "%";
 
             chart.notifyDataSetChanged();
             chart.setVisibleXRange(0,10);

@@ -1,26 +1,29 @@
 package com.kmutt.cs.goodnightgoodlife;
 
-public class List {
+public class Log {
     String date;
     String activity;
     String relaxation;
-    float deepsleep;
+    //float deepsleep;
+    String duration;
 
-    public List(String d, String a, String r, float ds){
+    /*public Log(String d, String a, String r, float dr, float ds){
         this.date = d;
         this.activity = a;
         this.relaxation = r;
-        this.deepsleep = ds;
-    }
+        //this.deepsleep = ds;
+        this.duration = dr;
+    }*/
 
-    public List(String d, String a, String r){
+    public Log(String d, String a, String r, String dr){
         this.date = d;
         this.activity = a;
         this.relaxation = r;
-        this.deepsleep = 0;
+        //this.deepsleep = 0;
+        this.duration = dr;
     }
 
-    public String getdate() {
+    public String getDate() {
         return date;
     }
 
@@ -32,8 +35,12 @@ public class List {
         return relaxation;
     }
 
-    public float getDeepsleep() {
+    /*public float getDeepsleep() {
         return deepsleep;
+    }*/
+
+    public String getDuration() {
+        return duration;
     }
 
 }

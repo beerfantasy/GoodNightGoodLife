@@ -5,12 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.LogViewHolder> {
+public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
 
     //this context we will use to inflate the layout
     private Context mCtx;
@@ -19,12 +18,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.LogViewHolder>
     private List<Log> logList;
 
     //getting the context and product list with constructor
-    public ListAdapter(Context mCtx, List<Log> productList) {
+    public LogAdapter(Context mCtx, List<Log> productList) {
         this.mCtx = mCtx;
         this.logList = productList;
     }
 
-    
+
 
 
     @Override
@@ -36,40 +35,38 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.LogViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, int position) {
+    public void onBindViewHolder(LogViewHolder holder, int position) {
         //getting the product of the specified position
-        Product product = productList.get(position);
+        Log log = logList.get(position);
 
         //binding the data with the viewholder views
-        holder.textViewTitle.setText(product.getTitle());
-        holder.textViewShortDesc.setText(product.getShortdesc());
-        holder.textViewRating.setText(String.valueOf(product.getRating()));
-        holder.textViewPrice.setText(String.valueOf(product.getPrice()));
-
-        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
+        holder.textViewDate.setText(log.getDate());
+        holder.textViewActivity.setText(log.getActivity());
+        holder.textViewDuration.setText(log.getDuration()+"");
+        holder.textViewAvgRelax.setText(log.getRelaxation());
+        //holder.textViewDeepSleep.setText(log.getDeepsleep()+"");
 
     }
 
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return logList.size();
     }
 
 
-    class ProductViewHolder extends RecyclerView.ViewHolder {
+    class LogViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
-        ImageView imageView;
+        TextView textViewDate, textViewActivity, textViewDuration, textViewAvgRelax; /*textViewDeepSleep*/
 
-        public ProductViewHolder(View itemView) {
+        public LogViewHolder(View itemView) {
             super(itemView);
 
-            textViewTitle = itemView.findViewById(R.id.textViewTitle);
-            textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
-            textViewRating = itemView.findViewById(R.id.textViewRating);
-            textViewPrice = itemView.findViewById(R.id.textViewPrice);
-            imageView = itemView.findViewById(R.id.imageView);
+            textViewDate = itemView.findViewById(R.id.date_list);
+            textViewActivity = itemView.findViewById(R.id.activity_list);
+            textViewDuration = itemView.findViewById(R.id.duration_list);
+            textViewAvgRelax = itemView.findViewById(R.id.avg_relax_list);
+            //textViewDeepSleep = itemView.findViewById(R.id.deepsleep_list);
         }
     }
 
