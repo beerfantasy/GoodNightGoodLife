@@ -90,7 +90,9 @@ public class MeasurementActivity extends AppCompatActivity {
 
     private String avg_relax_data = "";
     double avg = 0;
+    int ticking;
     Map<String, Object> user = new HashMap<>();
+    Map<String, Object> theta_map = new HashMap<>();
 
     CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
         @Override
@@ -116,6 +118,9 @@ public class MeasurementActivity extends AppCompatActivity {
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         final String formattedDate = df.format(c);
+
+        //Init ticking
+        ticking = 0;
 
 
 
@@ -183,6 +188,7 @@ public class MeasurementActivity extends AppCompatActivity {
                 start_act = false;
                 user.put("avg", avg);
                 db.collection("avg2").document(formattedDate).set(user);
+                //db.collection("avg2").document(formattedDate).set(theta_map);
 
                 //save data to array
                 /*
@@ -325,19 +331,12 @@ public class MeasurementActivity extends AppCompatActivity {
             theta_two = (thetaBuffer[1]+1)*50;
             theta_three = (thetaBuffer[2]+1)*50;
             theta_four = (thetaBuffer[3]+1)*50;
-            Log.e("one", ""+theta_one);
-            Log.e("two", ""+theta_two);
-            Log.e("three", ""+theta_three);
-            Log.e("four", ""+theta_four);
+            Log.e("one", ""+thetaBuffer[0]);
+            Log.e("two", ""+thetaBuffer[1]);
+            Log.e("three", ""+thetaBuffer[2]);
+            Log.e("four", ""+thetaBuffer[3]);
 
-//            Double theta_one_tmp = new Double(theta_one);
-//            Log.e("one_tmp" , ""+theta_one_tmp.doubleValue());
-//            Double theta_two_tmp = new Double(theta_two);
-//            Log.e("two_tmp", ""+theta_two_tmp.doubleValue());
-//            Double theta_three_tmp = new Double(theta_three);
-//            Log.e("three_tmp", ""+theta_three_tmp.doubleValue());
-//            Double theta_four_tmp = new Double(theta_four);
-//            Log.e("four_tmp", ""+theta_four_tmp.doubleValue());
+
 
             if(!Double.isNaN(theta_one) || !Double.isNaN(theta_two) || !Double.isNaN(theta_three) || !Double.isNaN(theta_four)) {
                 int divide = 4;
@@ -358,11 +357,19 @@ public class MeasurementActivity extends AppCompatActivity {
                     divide -= 1;
                 }
                 if(divide > 0) {
+                    ticking++;
                     ran = (theta_one + theta_two + theta_three + theta_four) / divide;
+                    double to_database = thetaBuffer[0] + thetaBuffer[1] + thetaBuffer[2] + thetaBuffer[3] / divide;
+                    theta_map.put(""+ticking, to_database);
                 }
                 Log.e("ran", ""+ran);
             }
-            data.addEntry(new Entry(set.getEntryCount(), (float) ran),0);
+            if(ran == 0) {
+                ran = (ran+1)*50;
+                data.addEntry(new Entry(set.getEntryCount(), (float) ran), 0);
+            }else{
+                data.addEntry(new Entry(set.getEntryCount(), (float) ran), 0);
+            }
             sum += ran;
             Log.e("sum", ""+sum);
 //            Double sumTmp = new Double(sum);

@@ -15,6 +15,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -23,6 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button regButton;
     private TextView textLogin;
     private FirebaseAuth firebaseAuth;
+    private Map<String, Object> user= new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,21 +38,29 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         setupUIViews();
         firebaseAuth = FirebaseAuth.getInstance();
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        final String formattedDate = df.format(c);
+        user.put("date", formattedDate);
+
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(validate()){
                     //Upload to database
-                    String user_email = email.getText().toString().trim();
-                    String user_name = username.getText().toString().trim();
+                    final String user_email = email.getText().toString().trim();
+                    final String user_name = username.getText().toString().trim();
                     String user_password = password.getText().toString().trim();
+
 
                     firebaseAuth.createUserWithEmailAndPassword(user_email,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
                                 Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                db.collection(user_email).document("Date Created").set(user);
                                 startActivity(new Intent(getApplicationContext(),Login.class));
                             }
                             else {

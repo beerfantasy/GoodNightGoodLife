@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.Chart;
@@ -23,13 +25,22 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.sql.Array;
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.simple.JSONObject;
@@ -39,12 +50,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
-    public static String authCode = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2VEpaWEYiLCJhdWQiOiIyMkNaUE4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd3BybyB3bnV0IHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNTM4NDU3OTQ1LCJpYXQiOjE1Mzc5Mzc2NDZ9.L-mfSrQalLlljdALUf4oWy-2e0hQimHYCUHS2DY9_BQ";
+    public static String authCode = "";
     public static String[] date_of_sleep;
     public static String[] deep_sleep;
     public static long[] sleep_time;
@@ -57,8 +69,12 @@ public class HomeActivity extends AppCompatActivity {
     private Long long_DSD;
     private long deep_sleep_per;
     private long sleep_per;
+    private boolean syncTemp = false;
 
     public static String currentDate;
+    private Map<String, Object> dateSleep = new HashMap<>();
+    //private Map<String, Object> deepSleep = new HashMap<>();
+
 
     float sleep[] = new float[2];
     String label[] = {"Deep Sleep" ,"Other stages"};
@@ -90,6 +106,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            //String name = user.getDisplayName();
+            String email = user.getEmail();
+            //Log.e(TAG, name);
+            Log.e(TAG, email);
+        }
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        final String formattedDate = df.format(c);
         setTitle("Home");
 
         //setupPieChart();
@@ -102,6 +130,8 @@ public class HomeActivity extends AppCompatActivity {
         currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
         TextView textViewDate = findViewById(R.id.text_view_date);
         textViewDate.setText(currentDate);
+
+
 
         Button button1 = (Button)findViewById(R.id.activities);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +147,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),SleepTrackActivity.class);
-                startActivity(intent);
+                if(deep_sleep[0] != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -130,6 +162,30 @@ public class HomeActivity extends AppCompatActivity {
         deep_sleep = new String[7];
         sleep_time = new long[7];
 
+        if(user != null) {
+            DocumentReference docRef = db.collection(user.getEmail().toString().trim()).document("Authentication Token");
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+
+                            authCode = document.getString("authToken");
+                            Log.d(TAG, "DocumentSnapshot data: " + authCode);
+
+                        } else {
+                            Log.d(TAG, "No such document");
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
+                }
+            });
+        }else{
+            Toast.makeText(getApplicationContext(), "Cannot find the user instance", Toast.LENGTH_LONG).show();
+        }
+
         Button toggle = (Button) findViewById(R.id.refresh);
         toggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +194,8 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
+
+
                             URLConnection connection = new URL(API_PREFIX.concat("/1.2/user/-/sleep/list.json?beforeDate=2018-09-13&sort=asc&offset=0&limit=7")).openConnection();
                             connection.setRequestProperty("Authorization","Bearer " + authCode);
                             InputStream response = connection.getInputStream();
@@ -177,13 +235,34 @@ public class HomeActivity extends AppCompatActivity {
                                     chart.notifyDataSetChanged();
                                     chart.invalidate();
                                 }
+//                                String dateLastNight = "";
+//                                if(!date_of_sleep[0].toString().matches("")) dateLastNight = date_of_sleep[0].toString();
+//                                Calendar calendar = Calendar.getInstance();
+//                                currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(dateLastNight);
+//                                TextView textViewDate = findViewById(R.id.text_view_date);
+//                                textViewDate.setText(currentDate);
                             }
+                            int i = 0;
+//                            for (String sleepDeep : deep_sleep){
+//                                int deep_temp = (Integer) Integer.parseInt(sleepDeep);
+//                                //deepSleep.put("duration", deep_temp);
+//
+//                            }
+                            for (String sleepDate : date_of_sleep){
+                                Map<String, Object> deepSleep = new HashMap<>();
+                                deepSleep.put("duration", (Integer) Integer.parseInt(deep_sleep[i]));
+                                db.collection(user.getEmail().toString().trim()).document("Date of Sleep")
+                                        .collection(sleepDate).document("Deep Sleep").set(deepSleep);
+                                i++;
+                            }
+                            //db.collection(user.getEmail().toString().trim()).document("Date of Sleep").set(dateSleep);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
                 urlConnectionThread.start();
+
             }
         });
 

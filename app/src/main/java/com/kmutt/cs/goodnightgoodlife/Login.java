@@ -60,7 +60,15 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                validate(_username.getText().toString(),_password.getText().toString());
+                try {
+                    if(!_username.getText().toString().matches("") && !_password.getText().toString().matches("")) {
+                        validate(_username.getText().toString(), _password.getText().toString());
+                    }else{
+                        Toast.makeText(Login.this, "Username or password is missing", Toast.LENGTH_LONG).show();
+                    }
+                }catch(java.lang.IllegalArgumentException e){
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG);
+                }
             }
         });
         firebaseAuth = FirebaseAuth.getInstance();
