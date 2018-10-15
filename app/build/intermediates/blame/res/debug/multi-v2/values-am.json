@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-am/values-am.xml",
+            "outputFile": "/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-am/values-am.xml",
             "map": [
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/c88be6e0a3d31f9e883560c6dbc88090/res/values-am/values.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/c3eed0cadf04676492fa252ea834278c/res/values-am/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/eb2f8593fc23ad265b214afe24753012/res/values-am/values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4377",
-                        "endColumns": "100",
-                        "endOffsets": "4473"
-                    }
-                },
-                {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/values-am/values.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/5d1b5096c5c39a486c0ed88901a1ce98/res/values-am/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/values-am/values-am.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0bd0afc91e56c4ab69a6104e85ee0011/res/values-am/values-am.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -69,6 +52,23 @@
                         "startOffsets": "105,207,306,412,498,601,714,792,870,949,1049,1149,1245,1348,1447,1554,1707,4298",
                         "endColumns": "101,98,105,85,102,112,77,77,78,99,99,95,102,98,106,152,95,78",
                         "endOffsets": "202,301,407,493,596,709,787,865,944,1044,1144,1240,1343,1442,1549,1702,1798,4372"
+                    }
+                },
+                {
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/62c374212b30e248ab4daebbae97b684/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4377",
+                        "endColumns": "100",
+                        "endOffsets": "4473"
                     }
                 }
             ]

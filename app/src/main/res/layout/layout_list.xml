@@ -28,38 +28,76 @@
 
             <TextView
                 android:id="@+id/activity_list"
-                android:layout_width="180sp"
+                android:layout_width="190dp"
                 android:layout_height="45sp"
-                android:layout_marginTop="5sp"
                 android:layout_below="@+id/date_list"
+                android:layout_marginTop="5sp"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
                 android:text="Activity : "
-                android:textColor="#bdcfef"/>
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/duration_list"
-                android:layout_width="180sp"
+                android:layout_width="188dp"
                 android:layout_height="45sp"
-                android:layout_marginTop="5sp"
-                android:layout_below="@+id/date_list"
-                android:layout_marginStart="200sp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/activity_list"
+                android:layout_marginEnd="0dp"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
                 android:text="Duration : "
-                android:textColor="#bdcfef"/>
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/avg_relax_list"
-                android:layout_width="180sp"
+                android:layout_width="wrap_content"
                 android:layout_height="45sp"
+                android:layout_alignStart="@+id/date_list"
+                android:layout_below="@+id/activity_list"
+                android:layout_marginTop="5sp"
+                android:gravity="center_vertical"
+                android:text="Avg. Relax : "
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/avg_relax_list_num"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:layout_alignEnd="@+id/activity_list"
                 android:layout_marginTop="5sp"
                 android:layout_below="@+id/activity_list"
-                android:layout_alignStart="@+id/date_list"
+                android:layout_toEndOf="@+id/avg_relax_list"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:text="Avg. Relax : "
-                android:textColor="#bdcfef"/>
+                android:text="Avg.Relax"
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/deepsleep_list"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:layout_marginTop="5sp"
+                android:layout_alignStart="@+id/duration_list"
+                android:layout_below="@+id/activity_list"
+                android:gravity="center_vertical"
+                android:text="Deep Sleep: "
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/deepsleep_list_num"
+                android:layout_width="79sp"
+                android:layout_height="45sp"
+                android:layout_marginTop="5sp"
+                android:layout_alignEnd="@+id/date_list"
+                android:layout_below="@+id/activity_list"
+                android:layout_toEndOf="@+id/deepsleep_list"
+                android:gravity="center_vertical"
+                android:text="Deepsleep"
+                android:textColor="#bdcfef"
+                android:textSize="18sp" />
 
 
         </RelativeLayout>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0bd0afc91e56c4ab69a6104e85ee0011/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

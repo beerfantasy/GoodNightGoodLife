@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/values-v16/values-v16.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0bd0afc91e56c4ab69a6104e85ee0011/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/eb2f8593fc23ad265b214afe24753012/res/values-v16/values-v16.xml",
+                    "source": "/Users/New/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/62c374212b30e248ab4daebbae97b684/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
