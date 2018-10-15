@@ -72,4 +72,16 @@
         android:text="Massage"
         android:textColor="@android:color/white" />
 
+    <Button
+        android:id="@+id/history_button"
+        android:layout_width="157sp"
+        android:layout_height="117sp"
+        android:layout_alignStart="@+id/listen_music"
+        android:layout_below="@+id/yoga"
+        android:layout_marginTop="40sp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/my_button_bg"
+        android:text="History"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>

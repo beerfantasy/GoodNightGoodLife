@@ -36,14 +36,20 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.choosemuse.libmuse.*;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -56,6 +62,8 @@ public class MeasurementActivity extends AppCompatActivity {
     private ConnectionListener connectionListener;
     private DataListener dataListener;
 
+    int timer;
+
     double sum;
     Button start;
     Button finish;
@@ -66,33 +74,32 @@ public class MeasurementActivity extends AppCompatActivity {
     private boolean start_act;
     private static DecimalFormat df2 = new DecimalFormat(".##");
 
-    // Bluetooth adapter for bluetooth connection and permission for Android 6.0 or later
     private BluetoothAdapter mBluetoothAdapter;
     private static final int MY_PERMISSIONS_REQUEST_BLUETOOTH = 0;
     private static final int REQUEST_ENABLE_BT = 1;
 
-//    private final double[] eegBuffer = new double[6];
-//    private boolean eegStale;
+    private final double[] eegBuffer = new double[6];
+    private boolean eegStale;
     private final double[] thetaBuffer = new double[6];
     private boolean thetaStale;
-//    private final double[] accelBuffer = new double[3];
-//    private boolean accelStale;
-    //private Handler handler = new Handler();
-    // Spinner for containing available Muse
+    private final double[] accelBuffer = new double[3];
+    private boolean accelStale;
+    private Handler handler = new Handler();
     private ArrayAdapter<String> spinnerAdapter;
-    // Firebase instance
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    // Hashmap for firebase
-    Map<String, Object> theta = new HashMap<>();
-    // Variable for firebase
-    private double avg = 0;
+    double ran = 0;
 
-    //Countdown timer for ticking the graph and streaming data
+    private String avg_relax_data = "";
+    double avg = 0;
+    int ticking;
+    Map<String, Object> user = new HashMap<>();
+    Map<String, Object> theta_map = new HashMap<>();
+
     CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
         @Override
         public void onTick(long l) {
             if (start_act) {
                 addEntry();
+                timer++;
             }
         }
 
@@ -107,15 +114,22 @@ public class MeasurementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurement);
         setTitle("Relaxation Measurement");
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        final String formattedDate = df.format(c);
+
+        //Init ticking
+        ticking = 0;
+
+
 
         manager = MuseManagerAndroid.getInstance();
         manager.setContext(this);
 
-        // Weakreference to prevent memory leak and to refer to some inner class
         WeakReference<MeasurementActivity> weakActivity =
                 new WeakReference<>(this);
 
-        // Bluetooth connection
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = bluetoothManager.getAdapter();
@@ -134,7 +148,6 @@ public class MeasurementActivity extends AppCompatActivity {
             checkConnect();
         }
 
-        // Register a listener to receive connection packet from a Muse
         connectionListener = new ConnectionListener(weakActivity);
         // Register a listener to receive data from a Muse.
         dataListener = new DataListener(weakActivity);
@@ -173,21 +186,21 @@ public class MeasurementActivity extends AppCompatActivity {
                 finish.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.VISIBLE);
                 start_act = false;
-                theta.put("avg", avg);
-                db.collection("avg").document("avg")
-                        .set(theta)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "DocumentSnapshot successfully written!");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error adding document", e);
-                            }
-                        });
+                user.put("avg", avg);
+                db.collection("avg2").document(formattedDate).set(user);
+                //db.collection("avg2").document(formattedDate).set(theta_map);
+
+                //save data to array
+                /*
+                logList.add(
+                        new com.kmutt.cs.goodnightgoodlife.Log(
+                                HomeActivity.currentDate,
+                                act,
+                                avg_relax_data,
+                                timer
+                        )
+                );
+                */
             }
         });
 
@@ -223,6 +236,7 @@ public class MeasurementActivity extends AppCompatActivity {
                     // receive the MuseDataPacketTypes we are interested in.  If you do
                     // not register a listener for a particular data type, you will not
                     // receive data packets of that type.
+                    // receive data packets of that type.
                     muse.unregisterAllListeners();
                     muse.registerConnectionListener(connectionListener);
                     //muse.registerDataListener(dataListener, MuseDataPacketType.EEG);
@@ -242,7 +256,6 @@ public class MeasurementActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 
@@ -299,7 +312,6 @@ public class MeasurementActivity extends AppCompatActivity {
     }
 
     private void addEntry() {
-        double ran = 0;
 
         LineData data = chart.getData();
 
@@ -310,11 +322,6 @@ public class MeasurementActivity extends AppCompatActivity {
                 set = createSet();
                 data.addDataSet(set);
             }
-            Log.e(TAG, "theta 0 "+thetaBuffer[0]);
-            Log.e(TAG, "theta 1 "+thetaBuffer[1]);
-            Log.e(TAG, "theta 2 "+thetaBuffer[2]);
-            Log.e(TAG, "theta 3 "+thetaBuffer[3]);
-
             double theta_one = 0;
             double theta_two = 0;
             double theta_three = 0;
@@ -324,12 +331,54 @@ public class MeasurementActivity extends AppCompatActivity {
             theta_two = (thetaBuffer[1]+1)*50;
             theta_three = (thetaBuffer[2]+1)*50;
             theta_four = (thetaBuffer[3]+1)*50;
+            Log.e("one", ""+thetaBuffer[0]);
+            Log.e("two", ""+thetaBuffer[1]);
+            Log.e("three", ""+thetaBuffer[2]);
+            Log.e("four", ""+thetaBuffer[3]);
 
-            ran = (theta_one+theta_two+theta_three+theta_four)/4;
-            data.addEntry(new Entry(set.getEntryCount(), (float) ran),0);
+
+
+            if(!Double.isNaN(theta_one) || !Double.isNaN(theta_two) || !Double.isNaN(theta_three) || !Double.isNaN(theta_four)) {
+                int divide = 4;
+                if(Double.isNaN(theta_one)){
+                    theta_one = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_two)){
+                    theta_two = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_three)){
+                    theta_three = 0;
+                    divide -= 1;
+                }
+                if(Double.isNaN(theta_four)){
+                    theta_four = 0;
+                    divide -= 1;
+                }
+                if(divide > 0) {
+                    ticking++;
+                    ran = (theta_one + theta_two + theta_three + theta_four) / divide;
+                    double to_database = thetaBuffer[0] + thetaBuffer[1] + thetaBuffer[2] + thetaBuffer[3] / divide;
+                    theta_map.put(""+ticking, to_database);
+                }
+                Log.e("ran", ""+ran);
+            }
+            if(ran == 0) {
+                ran = (ran+1)*50;
+                data.addEntry(new Entry(set.getEntryCount(), (float) ran), 0);
+            }else{
+                data.addEntry(new Entry(set.getEntryCount(), (float) ran), 0);
+            }
             sum += ran;
-            avg = sum/set.getEntryCount();
+            Log.e("sum", ""+sum);
+//            Double sumTmp = new Double(sum);
+            if(!Double.isNaN(sum)) {
+                avg = (sum / set.getEntryCount())-50;
+                Log.e("avg", ""+avg);
+            }
             avg_relax.setText("Average Relaxation : " + df2.format(avg) + "%");
+            avg_relax_data = df2.format(avg) + "%";
 
             chart.notifyDataSetChanged();
             chart.setVisibleXRange(0,10);

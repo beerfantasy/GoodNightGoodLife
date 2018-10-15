@@ -58,8 +58,8 @@
     <Button
         android:id="@+id/connectButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/avg_relax"
+        android:layout_height="35sp"
+        android:layout_marginStart="85sp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="43sp"
         android:background="@drawable/signup_button"
@@ -68,7 +68,7 @@
     <Button
         android:id="@+id/refreshButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35sp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/connectButton"
         android:layout_marginEnd="94sp"

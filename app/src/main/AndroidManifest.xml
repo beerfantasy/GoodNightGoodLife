@@ -31,6 +31,7 @@
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".MeasurementActivity"></activity>
         <activity android:name=".ChangeAuthCodeActivity"></activity>
+        <activity android:name=".ActivityLogActivity"></activity>
     </application>
 
 </manifest>

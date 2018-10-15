@@ -24,6 +24,7 @@ public class ActivityActivity extends AppCompatActivity {
         Button meditation = (Button) findViewById(R.id.meditation);
         Button yoga = (Button) findViewById(R.id.yoga);
         Button massage = (Button) findViewById(R.id.massage);
+        Button history = (Button) findViewById(R.id.history_button);
 
         read_book.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,14 @@ public class ActivityActivity extends AppCompatActivity {
             public void onClick(View view) {
                 intent.putExtra("activity_cur", "Massage");
                 startActivity(intent);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(getApplicationContext(),ActivityLogActivity.class);
+                startActivity(intent2);
             }
         });
     }

@@ -1,13 +1,10 @@
-#Tue Sep 25 12:35:32 ICT 2018
-path.3=classes.dex
-path.2=classes.dex
+#Thu Oct 11 12:20:38 ICT 2018
+path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
-renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.3=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/15
-base.2=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/12
-base.1=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/14
-base.0=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/13
+base.2=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/1
+base.1=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/0
+base.0=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/1
