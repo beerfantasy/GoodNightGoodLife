@@ -26,6 +26,8 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -235,24 +237,43 @@ public class HomeActivity extends AppCompatActivity {
                                     chart.notifyDataSetChanged();
                                     chart.invalidate();
                                 }
-//                                String dateLastNight = "";
-//                                if(!date_of_sleep[0].toString().matches("")) dateLastNight = date_of_sleep[0].toString();
-//                                Calendar calendar = Calendar.getInstance();
-//                                currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(dateLastNight);
-//                                TextView textViewDate = findViewById(R.id.text_view_date);
-//                                textViewDate.setText(currentDate);
                             }
                             int i = 0;
-//                            for (String sleepDeep : deep_sleep){
-//                                int deep_temp = (Integer) Integer.parseInt(sleepDeep);
-//                                //deepSleep.put("duration", deep_temp);
-//
-//                            }
                             for (String sleepDate : date_of_sleep){
                                 Map<String, Object> deepSleep = new HashMap<>();
-                                deepSleep.put("duration", (Integer) Integer.parseInt(deep_sleep[i]));
+                                Map<String, Object> sleepDu = new HashMap<>();
+                                if(deep_sleep[i] != null) {
+                                    deepSleep.put("duration", (Integer) Integer.parseInt(deep_sleep[i]));
+                                }
+                                sleepDu.put("duration", sleep_time[i]);
                                 db.collection(user.getEmail().toString().trim()).document("Date of Sleep")
-                                        .collection(sleepDate).document("Deep Sleep").set(deepSleep);
+                                        .collection(sleepDate).document("Deep Sleep").set(deepSleep)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written! : Deep Sleep");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
+                                db.collection(user.getEmail().toString().trim()).document("Date of Sleep")
+                                        .collection(sleepDate).document("Sleep Duration").set(sleepDu)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written! : Sleep Duration");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
                                 i++;
                             }
                             //db.collection(user.getEmail().toString().trim()).document("Date of Sleep").set(dateSleep);
