@@ -8,7 +8,11 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,6 +88,10 @@ public class HomeActivity extends AppCompatActivity {
             Color.rgb(16, 41, 109), Color.rgb(64, 108, 229)
     };
 
+    //drawer
+    private DrawerLayout mDrawerlayout;
+    private ActionBarDrawerToggle mToggle;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.my_menu, menu);
@@ -101,13 +109,56 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        // Drawer toggle
+        else if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //drawer toggle
+        mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout,R.string.open,R.string.close);
+        mDrawerlayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //drawer menu
+        /*NavigationView navigation = (NavigationView) findViewById(R.id.nav_view);
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                switch (id) {
+                    case R.id.activity_drawer:
+                        Intent intent1 = new Intent(getApplicationContext(), ActivityActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.history_drawer:
+                        Intent intent2 = new Intent(getApplicationContext(), ActivityLogActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.sleeptrack_drawer:
+                        Intent intent3 = new Intent(getApplicationContext(), SleepTrackActivity.class);
+                        startActivity(intent3);
+                        break;
+                    case R.id.logout_drawer:
+                        Intent intent4 = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });*/
+
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
