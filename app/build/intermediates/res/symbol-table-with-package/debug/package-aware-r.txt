@@ -900,6 +900,7 @@ id auto
 id avg
 id avg_relax
 id avg_relax_list
+id avg_relax_list_num
 id bar_chart
 id barrier
 id beginning
@@ -935,6 +936,8 @@ id day5
 id day6
 id day7
 id decor_content_parent
+id deepsleep_list
+id deepsleep_list_num
 id default_activity_button
 id design_bottom_sheet
 id design_menu_item_action_area

@@ -3,8 +3,8 @@ package com.kmutt.cs.goodnightgoodlife;
 public class Log {
     String date;
     String activity;
-    String relaxation;
-    //float deepsleep;
+    float relaxation;
+    float deepsleep;
     String duration;
 
     /*public Log(String d, String a, String r, float dr, float ds){
@@ -15,11 +15,11 @@ public class Log {
         this.duration = dr;
     }*/
 
-    public Log(String d, String a, String r, String dr){
+    public Log(String d, String a, float r, String dr, float ds){
         this.date = d;
         this.activity = a;
         this.relaxation = r;
-        //this.deepsleep = 0;
+        this.deepsleep = ds;
         this.duration = dr;
     }
 
@@ -31,13 +31,9 @@ public class Log {
         return activity;
     }
 
-    public String getRelaxation() {
-        return relaxation;
-    }
+    public float getRelaxation() { return relaxation; }
 
-    /*public float getDeepsleep() {
-        return deepsleep;
-    }*/
+    public float getDeepsleep() { return deepsleep; }
 
     public String getDuration() {
         return duration;

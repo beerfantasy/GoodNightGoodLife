@@ -1,6 +1,7 @@
 package com.kmutt.cs.goodnightgoodlife;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,8 +44,14 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
         holder.textViewDate.setText(log.getDate());
         holder.textViewActivity.setText(log.getActivity());
         holder.textViewDuration.setText(log.getDuration()+"");
-        holder.textViewAvgRelax.setText(log.getRelaxation());
-        //holder.textViewDeepSleep.setText(log.getDeepsleep()+"");
+
+        holder.textViewAvgRelax.setText(log.getRelaxation()+ "%");
+        if (log.getRelaxation() > 80f) holder.textViewAvgRelax.setTextColor(Color.rgb(88,243,175));
+        else holder.textViewAvgRelax.setTextColor(Color.rgb(255,86,86));
+
+        holder.textViewDeepSleep.setText(log.getDeepsleep() + " minutes");
+        if (log.getDeepsleep() > 40f) holder.textViewDeepSleep.setTextColor(Color.rgb(88,243,175));
+        else holder.textViewDeepSleep.setTextColor(Color.rgb(255,86,86));
 
     }
 
@@ -57,7 +64,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
 
     class LogViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewDate, textViewActivity, textViewDuration, textViewAvgRelax; /*textViewDeepSleep*/
+        TextView textViewDate, textViewActivity, textViewDuration, textViewAvgRelax, textViewDeepSleep;
 
         public LogViewHolder(View itemView) {
             super(itemView);
@@ -65,8 +72,8 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
             textViewDate = itemView.findViewById(R.id.date_list);
             textViewActivity = itemView.findViewById(R.id.activity_list);
             textViewDuration = itemView.findViewById(R.id.duration_list);
-            textViewAvgRelax = itemView.findViewById(R.id.avg_relax_list);
-            //textViewDeepSleep = itemView.findViewById(R.id.deepsleep_list);
+            textViewAvgRelax = itemView.findViewById(R.id.avg_relax_list_num);
+            textViewDeepSleep = itemView.findViewById(R.id.deepsleep_list_num);
         }
     }
 

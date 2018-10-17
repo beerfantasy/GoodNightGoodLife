@@ -32,8 +32,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Wednesday, 26 september 2018",
                         "Activity: Read Book",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        92,
+                        "Duration: 30 minutes",
+                        35
                 )
         );
 
@@ -41,8 +42,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Tuesday, 25 september 2018",
                         "Activity: Listen Music",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        39,
+                        "Duration: 30 minutes",
+                        98
                 )
         );
 
@@ -50,8 +52,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Monday, 24 september 2018",
                         "Activity: Meditation",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        49,
+                        "Duration: 30 minutes",
+                        78
                 )
         );
 
@@ -59,8 +62,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Sunday, 23 september 2018",
                         "Activity: Yoga",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        79,
+                        "Duration: 30 minutes",
+                        67
                 )
         );
 
@@ -68,8 +72,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Saturday, 22 september 2018",
                         "Activity: Read Book",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        56,
+                        "Duration: 30 minutes",
+                        13
                 )
         );
 
@@ -77,8 +82,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Friday, 21 september 2018",
                         "Activity: Read Book",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        50,
+                        "Duration: 30 minutes",
+                        15
                 )
         );
 
@@ -86,8 +92,9 @@ public class ActivityLogActivity extends AppCompatActivity {
                 new com.kmutt.cs.goodnightgoodlife.Log(
                         "Thursday, 20 september 2018",
                         "Activity: Read Book",
-                        "Relax: 99%",
-                        "Duration: 30 minutes"
+                        96,
+                        "Duration: 30 minutes",
+                        40
                 )
         );
 
@@ -96,5 +103,6 @@ public class ActivityLogActivity extends AppCompatActivity {
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
+
     }
 }

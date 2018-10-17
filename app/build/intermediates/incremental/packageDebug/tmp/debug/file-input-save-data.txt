@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Sep 27 15:56:42 ICT 2018
+#Mon Oct 15 14:23:13 ICT 2018
 1.base=/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/1
 2.path=classes.dex
 0.baseType=DIRECTORY

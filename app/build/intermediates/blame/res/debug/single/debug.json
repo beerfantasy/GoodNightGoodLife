@@ -20,12 +20,12 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/eb2f8593fc23ad265b214afe24753012/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/layout_design_bottom_sheet_dialog.xml.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/anim_abc_slide_out_top.xml.flat",
@@ -136,12 +136,12 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/color-v23/abc_btn_colored_borderless_text_material.xml"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_dark.xml.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/color-v23/abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -344,12 +344,12 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
@@ -392,20 +392,20 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-mdpi-v4/abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/drawable-mdpi-v4/design_ic_visibility.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-mdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/drawable-hdpi-v4/design_ic_visibility.png"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -420,32 +420,32 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable_design_fab_background.xml.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/drawable/design_fab_background.xml"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable_design_fab_background.xml.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/0bc1fcc4c9714e37cec02ce09a58d73c/res/drawable/design_fab_background.xml"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/drawable-hdpi-v4/common_full_open_on_phone.png"
-    },
-    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
-        "source": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/src/main/res/layout/activity_login.xml"
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/656dd01d5f7ba429a6adf1f7e8e89924/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
+        "source": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/src/main/res/layout/activity_login.xml"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
@@ -1364,16 +1364,16 @@
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable_auth_button.png.flat",
+        "source": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/src/main/res/drawable/auth_button.png"
+    },
+    {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
         "source": "/Users/sarunchotteratat/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/66aee2ada2ce2e0e4b7a7b4393728e99/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable_auth_button.png.flat",
-        "source": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/src/main/res/drawable/auth_button.png"
     },
     {
         "merged": "/Users/sarunchotteratat/Downloads/GoodNightGoodLife/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
