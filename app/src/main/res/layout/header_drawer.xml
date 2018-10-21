@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180sp"
+    android:padding="15sp"
+    android:background="@drawable/header">
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:src="@drawable/user"
+        android:layout_width="105sp"
+        android:layout_height="105sp" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="5sp"
+        android:layout_below="@+id/img_user"
+        android:textStyle="bold"
+        android:text="Firstname Lastname"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_below="@+id/text_name"
+        android:layout_toEndOf="@+id/gender"
+        android:text="Age"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="5sp"
+        android:layout_below="@+id/text_name"
+        android:text="Gender"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

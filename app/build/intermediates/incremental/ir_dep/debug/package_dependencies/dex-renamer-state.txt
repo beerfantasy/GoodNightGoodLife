@@ -1,4 +1,4 @@
-#Thu Oct 11 14:23:13 ICT 2018
+#Tue Oct 16 14:45:41 ICT 2018
 base.0=/Users/New/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/10
 path.1=classes2.dex
 renamed.1=classes2.dex

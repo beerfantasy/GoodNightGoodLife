@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +20,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.design.widget.NavigationView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.Chart;
@@ -56,7 +59,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
@@ -89,6 +93,7 @@ public class HomeActivity extends AppCompatActivity {
     //drawer
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
+    private NavigationView mDrawerList;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,7 +120,31 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //drawer menu
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
+        if (id == R.id.activity_drawer) {
+            Intent intent1 = new Intent(getApplicationContext(),ActivityActivity.class);
+            startActivity(intent1);
+        }
+        else if (id == R.id.sleeptrack_drawer) {
+            Intent intent2 = new Intent(getApplicationContext(),SleepTrackActivity.class);
+            startActivity(intent2);
+        }
+        else if (id == R.id.history_drawer) {
+            Intent intent3 = new Intent(getApplicationContext(),ActivityLogActivity.class);
+            startActivity(intent3);
+        }
+        else if (id == R.id.logout_drawer) {
+            Intent intent4 = new Intent(getApplicationContext(),Login.class);
+            startActivity(intent4);
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -124,38 +153,21 @@ public class HomeActivity extends AppCompatActivity {
 
         //drawer toggle
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout,R.string.open,R.string.close);
+        mDrawerList = (NavigationView) findViewById(R.id.nav_view);
+        mDrawerList.setNavigationItemSelectedListener(this);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout,R.string.open,R.string.close)
+        {
+            public void onDrawerClosed(View view) { /*invalidateOptionsMenu();*/ }
+
+            public void onDrawerOpened(View drawerView) {
+                mDrawerList.bringToFront();
+                mDrawerlayout.requestLayout();
+                //invalidateOptionsMenu();
+            }
+        };
         mDrawerlayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //drawer menu
-        /*NavigationView navigation = (NavigationView) findViewById(R.id.nav_view);
-        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.activity_drawer:
-                        Intent intent1 = new Intent(getApplicationContext(), ActivityActivity.class);
-                        startActivity(intent1);
-                        break;
-                    case R.id.history_drawer:
-                        Intent intent2 = new Intent(getApplicationContext(), ActivityLogActivity.class);
-                        startActivity(intent2);
-                        break;
-                    case R.id.sleeptrack_drawer:
-                        Intent intent3 = new Intent(getApplicationContext(), SleepTrackActivity.class);
-                        startActivity(intent3);
-                        break;
-                    case R.id.logout_drawer:
-                        Intent intent4 = new Intent(getApplicationContext(), Login.class);
-                        startActivity(intent4);
-                        break;
-                }
-                return false;
-            }
-        });*/
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

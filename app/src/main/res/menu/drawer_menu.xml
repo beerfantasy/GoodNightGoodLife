@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/sleeptrack_drawer" android:title="Sleep Track" android:icon="@drawable/sleeptrack"/>
+    <item android:id="@+id/activity_drawer" android:title="Activity" android:icon="@drawable/activity"/>
+    <item android:id="@+id/history_drawer" android:title="History" android:icon="@drawable/history"/>
+    <item android:id="@+id/logout_drawer" android:title="Log Out" android:icon="@drawable/logout"/>
+
+</menu>

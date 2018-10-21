@@ -801,6 +801,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable activities
+drawable activity
 drawable auth_button
 drawable avd_hide_password
 drawable avd_show_password
@@ -831,11 +832,15 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable drawer
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable header
+drawable history
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable logo
+drawable logout
 drawable my_button_bg
 drawable navigation_empty_icon
 drawable notification_action_background
@@ -855,8 +860,10 @@ drawable rotate
 drawable settings
 drawable signup_button
 drawable sleep_track
+drawable sleeptrack
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable user
 drawable username
 id ALT
 id CTRL
@@ -887,10 +894,12 @@ id actions
 id activities
 id activity
 id activity_chooser_view_content
+id activity_drawer
 id activity_list
 id add
 id adjust_height
 id adjust_width
+id age
 id alertTitle
 id all
 id always
@@ -947,6 +956,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id drawer
 id duration_list
 id editText
 id editText3
@@ -964,10 +974,12 @@ id fill_horizontal
 id fill_vertical
 id fixed
 id forever
+id gender
 id ghost_view
 id gone
 id history
 id history_button
+id history_drawer
 id home
 id homeAsUp
 id icon
@@ -978,6 +990,7 @@ id image
 id imageView3
 id imageView5
 id imageView7
+id img_user
 id info
 id invisible
 id italic
@@ -991,6 +1004,7 @@ id line_chart
 id listMode
 id list_item
 id listen_music
+id logout_drawer
 id masked
 id massage
 id media_actions
@@ -999,6 +1013,7 @@ id message
 id middle
 id mini
 id multiply
+id nav_view
 id navigation_header_container
 id never
 id none
@@ -1054,6 +1069,7 @@ id showHome
 id showTitle
 id signin
 id sleeptrack
+id sleeptrack_drawer
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1085,6 +1101,7 @@ id text_DST
 id text_LNSD
 id text_input_password_toggle
 id text_login
+id text_name
 id text_view_date
 id textinput_counter
 id textinput_error
@@ -1171,6 +1188,8 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout drawer
+layout header_drawer
 layout layout_list
 layout notification_action
 layout notification_action_tombstone
@@ -1191,6 +1210,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu drawer_menu
 menu my_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -1227,6 +1247,7 @@ string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string character_counter_pattern
+string close
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -1252,6 +1273,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string open
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
