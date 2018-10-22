@@ -62,9 +62,10 @@ public class SleepTrackActivity extends AppCompatActivity {
 
         ArrayList<BarEntry> list = new ArrayList<>();
         for(int i = 0; i < HomeActivity.deep_sleep.length; i++) {
+            if(!HomeActivity.deep_sleep[i].matches("")){
             list.add(new BarEntry(i,Float.parseFloat(HomeActivity.deep_sleep[i])));
             avg_deepsleep += Float.parseFloat(HomeActivity.deep_sleep[i]);
-            avg_deep_sleep_in_week[i] = (Long.parseLong(HomeActivity.deep_sleep[i])*100)/HomeActivity.sleep_time[i];
+            avg_deep_sleep_in_week[i] = (Long.parseLong(HomeActivity.deep_sleep[i])*100)/HomeActivity.sleep_time[i];}
         }
 
         avg_deepsleep = avg_deepsleep/HomeActivity.deep_sleep.length;

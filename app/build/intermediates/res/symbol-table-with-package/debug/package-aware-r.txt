@@ -841,6 +841,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable logo
 drawable logout
+drawable moon_sleep
 drawable my_button_bg
 drawable navigation_empty_icon
 drawable notification_action_background
@@ -987,6 +988,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView
 id imageView3
 id imageView5
 id imageView7

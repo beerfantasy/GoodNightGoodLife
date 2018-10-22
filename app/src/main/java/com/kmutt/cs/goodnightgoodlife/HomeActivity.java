@@ -33,6 +33,8 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -43,6 +45,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.sql.Array;
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -61,6 +64,8 @@ import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    TextView textViewDate;
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
@@ -186,13 +191,13 @@ public class HomeActivity extends AppCompatActivity
         //setupPieChart();
         final PieChart chart = (PieChart) findViewById(R.id.chart);
         //chart.animateY(1000, Easing.EasingOption.EaseInOutCubic);
-        chart.setNoDataText("Please sync data first.");
+        chart.setNoDataText("");
         chart.setNoDataTextColor(Color.WHITE);
 
         Calendar calendar = Calendar.getInstance();
         currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
-        TextView textViewDate = findViewById(R.id.text_view_date);
-        textViewDate.setText(currentDate);
+        textViewDate = findViewById(R.id.text_view_date);
+        textViewDate.setText("Today : " + currentDate);
 
 
 
@@ -298,34 +303,67 @@ public class HomeActivity extends AppCompatActivity
                                     chart.notifyDataSetChanged();
                                     chart.invalidate();
                                 }
-//                                String dateLastNight = "";
-//                                if(!date_of_sleep[0].toString().matches("")) dateLastNight = date_of_sleep[0].toString();
-//                                Calendar calendar = Calendar.getInstance();
-//                                currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(dateLastNight);
-//                                TextView textViewDate = findViewById(R.id.text_view_date);
-//                                textViewDate.setText(currentDate);
                             }
                             int i = 0;
-//                            for (String sleepDeep : deep_sleep){
-//                                int deep_temp = (Integer) Integer.parseInt(sleepDeep);
-//                                //deepSleep.put("duration", deep_temp);
-//
-//                            }
                             for (String sleepDate : date_of_sleep){
                                 Map<String, Object> deepSleep = new HashMap<>();
-                                deepSleep.put("duration", (Integer) Integer.parseInt(deep_sleep[i]));
+                                Map<String, Object> sleepDu = new HashMap<>();
+                                if(deep_sleep[i] != null) {
+                                    deepSleep.put("duration", (Integer) Integer.parseInt(deep_sleep[i]));
+                                }
+                                sleepDu.put("duration", sleep_time[i]);
                                 db.collection(user.getEmail().toString().trim()).document("Date of Sleep")
-                                        .collection(sleepDate).document("Deep Sleep").set(deepSleep);
+                                        .collection(sleepDate).document("Deep Sleep").set(deepSleep)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written! : Deep Sleep");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
+                                db.collection(user.getEmail().toString().trim()).document("Date of Sleep")
+                                        .collection(sleepDate).document("Sleep Duration").set(sleepDu)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written! : Sleep Duration");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
                                 i++;
                             }
                             //db.collection(user.getEmail().toString().trim()).document("Date of Sleep").set(dateSleep);
+                            try {
+                                if(!date_of_sleep[0].matches("")) {
+                                    DateFormat outputFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+                                    DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+                                    String inputText = date_of_sleep[0];
+                                    Date date = inputFormat.parse(inputText);
+                                    String outputText = outputFormat.format(date);
+                                    Log.e(TAG, "date : " + outputText);
+                                    textViewDate.setText(outputText);
+                                }
+
+                            } catch (Exception e) {
+
+                                e.printStackTrace();
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
                 urlConnectionThread.start();
-
             }
         });
 
