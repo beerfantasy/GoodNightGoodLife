@@ -276,6 +276,10 @@
         "source": "C:\\Users\\New\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\e730213d24f7376b092da9f69a38d249\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
     },
     {
+        "merged": "C:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_moon_happy.png.flat",
+        "source": "C:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\src\\main\\res\\drawable-v24\\moon_happy.png"
+    },
+    {
         "merged": "C:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\New\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f94ed029708131982bf3b46956c9c2a6\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
     },

@@ -66,6 +66,8 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView textViewDate;
+    public static ImageView moon_sleep;
+    public static ImageView moon_happy;
 
     private static final String TAG = HomeActivity.class.getSimpleName() ;
     private static final String API_PREFIX = "https://api.fitbit.com";
@@ -80,7 +82,7 @@ public class HomeActivity extends AppCompatActivity
     private TextView DSD;
     private TextView LNSD;
     private Long long_DSD;
-    private long deep_sleep_per;
+    private long deep_sleep_per = 0;
     private long sleep_per;
     private boolean syncTemp = false;
 
@@ -156,6 +158,12 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //emo
+        moon_sleep = (ImageView) findViewById(R.id.sleep_moon);
+        moon_sleep.setVisibility(View.INVISIBLE);
+        moon_happy = (ImageView) findViewById(R.id.happy_moon);
+        moon_happy.setVisibility(View.INVISIBLE);
+
         //drawer toggle
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerList = (NavigationView) findViewById(R.id.nav_view);
@@ -191,7 +199,8 @@ public class HomeActivity extends AppCompatActivity
         //setupPieChart();
         final PieChart chart = (PieChart) findViewById(R.id.chart);
         //chart.animateY(1000, Easing.EasingOption.EaseInOutCubic);
-        chart.setNoDataText("");
+        chart.setNoDataText("Please press SYNC button first");
+        chart.setCenterTextSize(25);
         chart.setNoDataTextColor(Color.WHITE);
 
         Calendar calendar = Calendar.getInstance();
@@ -262,8 +271,6 @@ public class HomeActivity extends AppCompatActivity
                     @Override
                     public void run() {
                         try {
-
-
                             URLConnection connection = new URL(API_PREFIX.concat("/1.2/user/-/sleep/list.json?beforeDate=2018-09-13&sort=asc&offset=0&limit=7")).openConnection();
                             connection.setRequestProperty("Authorization","Bearer " + authCode);
                             InputStream response = connection.getInputStream();
@@ -344,13 +351,16 @@ public class HomeActivity extends AppCompatActivity
                             }
                             //db.collection(user.getEmail().toString().trim()).document("Date of Sleep").set(dateSleep);
                             try {
-                                if(!date_of_sleep[0].matches("")) {
+                                if(!date_of_sleep[6].matches("")) {
+
+                                    //set latest date
                                     DateFormat outputFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
                                     DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-                                    String inputText = date_of_sleep[0];
+                                    String inputText = date_of_sleep[6];
                                     Date date = inputFormat.parse(inputText);
                                     String outputText = outputFormat.format(date);
                                     Log.e(TAG, "date : " + outputText);
+                                    Log.e(TAG, deep_sleep_per + "");
                                     textViewDate.setText(outputText);
                                 }
 
@@ -363,6 +373,15 @@ public class HomeActivity extends AppCompatActivity
                         }
                     }
                 });
+                //set emo visible
+                if (deep_sleep_per <= 20 && deep_sleep_per != 0) {
+                    moon_sleep.setVisibility(View.VISIBLE);
+                    moon_happy.setVisibility(View.INVISIBLE);
+                }
+                else if (deep_sleep_per > 20 && deep_sleep_per != 0) {
+                    moon_sleep.setVisibility(View.INVISIBLE);
+                    moon_happy.setVisibility(View.VISIBLE);
+                }
                 urlConnectionThread.start();
             }
         });

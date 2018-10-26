@@ -841,6 +841,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable logo
 drawable logout
+drawable moon_happy
 drawable moon_sleep
 drawable my_button_bg
 drawable navigation_empty_icon
@@ -978,6 +979,7 @@ id forever
 id gender
 id ghost_view
 id gone
+id happy_moon
 id history
 id history_button
 id history_drawer
@@ -988,7 +990,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView
 id imageView3
 id imageView5
 id imageView7
@@ -1070,6 +1071,7 @@ id showCustom
 id showHome
 id showTitle
 id signin
+id sleep_moon
 id sleeptrack
 id sleeptrack_drawer
 id smallLabel

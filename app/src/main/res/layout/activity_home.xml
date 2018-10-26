@@ -95,13 +95,22 @@
             android:text="Sync" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="105dp"
-            android:layout_height="109dp"
+            android:id="@+id/sleep_moon"
+            android:layout_width="115sp"
+            android:layout_height="119sp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="169sp"
             app:srcCompat="@drawable/moon_sleep" />
+
+        <ImageView
+            android:id="@+id/happy_moon"
+            android:layout_width="115sp"
+            android:layout_height="136sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="131sp"
+            android:layout_marginTop="165sp"
+            app:srcCompat="@drawable/moon_happy" />
 
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
