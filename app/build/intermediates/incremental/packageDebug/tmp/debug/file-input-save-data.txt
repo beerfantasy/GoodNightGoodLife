@@ -1,21 +1,21 @@
 #Internal package file, do not edit.
-#Tue Oct 23 13:57:50 ICT 2018
+#Tue Oct 30 18:32:35 ICT 2018
 4.path=classes.dex
-8.set=NATIVE_RESOURCE
+8.set=DEX
 6.path=classes.dex
 0.baseType=DIRECTORY
 10.path=classes.dex
 5.baseType=DIRECTORY
-1.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\20
-8.path=lib/armeabi-v7a/libmuse_android.so
-3.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\19
+1.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/17
+8.path=classes.dex
+3.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/13
 4.set=DEX
-5.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\17
-7.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
-11.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\21
-9.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+5.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/15
+7.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/20
+11.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/mergeJniLibs/debug/0
+9.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/11
 1.baseType=DIRECTORY
-11.set=DEX
+11.set=NATIVE_RESOURCE
 0.set=DEX
 6.baseType=DIRECTORY
 7.set=DEX
@@ -27,18 +27,18 @@
 3.path=classes.dex
 10.set=DEX
 5.path=classes.dex
-0.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+0.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/21
 7.path=classes.dex
-11.path=classes.dex
+11.path=lib/armeabi-v7a/libmuse_android.so
 9.path=classes.dex
 6.set=DEX
-2.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
+2.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/19
 11.baseType=DIRECTORY
-4.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
+4.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/16
 3.baseType=DIRECTORY
-6.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-10.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-8.base=C\:\\Users\\New\\Desktop\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0
+6.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/18
+10.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/14
+8.base=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/12
 2.set=DEX
 8.baseType=DIRECTORY
 9.set=DEX

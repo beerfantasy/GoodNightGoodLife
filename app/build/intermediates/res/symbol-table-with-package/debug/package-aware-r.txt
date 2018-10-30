@@ -898,7 +898,10 @@ id activity
 id activity_chooser_view_content
 id activity_drawer
 id activity_list
+id activity_list_recyclerView
+id activity_text
 id add
+id add_button
 id adjust_height
 id adjust_width
 id age
@@ -981,7 +984,6 @@ id ghost_view
 id gone
 id happy_moon
 id history
-id history_button
 id history_drawer
 id home
 id homeAsUp
@@ -1006,12 +1008,9 @@ id line3
 id line_chart
 id listMode
 id list_item
-id listen_music
 id logout_drawer
 id masked
-id massage
 id media_actions
-id meditation
 id message
 id middle
 id mini
@@ -1028,6 +1027,7 @@ id packed
 id parallax
 id parent
 id parentPanel
+id parent_layout
 id parent_matrix
 id password
 id percent
@@ -1035,7 +1035,6 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
-id read_book
 id recyclerView
 id refresh
 id refreshButton
@@ -1099,7 +1098,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
 id textView2
-id textView3
 id text_DSD
 id text_DST
 id text_LNSD
@@ -1131,7 +1129,6 @@ id wide
 id withText
 id wrap
 id wrap_content
-id yoga
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1194,6 +1191,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout drawer
 layout header_drawer
+layout layout_activity_list
 layout layout_list
 layout notification_action
 layout notification_action_tombstone
