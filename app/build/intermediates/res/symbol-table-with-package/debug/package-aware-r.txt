@@ -1216,6 +1216,7 @@ menu drawer_menu
 menu my_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw trained_model
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
