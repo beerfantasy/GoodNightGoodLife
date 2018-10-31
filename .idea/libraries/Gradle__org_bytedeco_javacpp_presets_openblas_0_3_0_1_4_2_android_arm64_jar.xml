@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.bytedeco.javacpp-presets:openblas:0.3.0-1.4.2:android-arm64@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/openblas/0.3.0-1.4.2/877540ff8ae268e83d4fa321c4bf07cc375b9ef8/openblas-0.3.0-1.4.2-android-arm64.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

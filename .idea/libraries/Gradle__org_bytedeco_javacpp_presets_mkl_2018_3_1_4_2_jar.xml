@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.bytedeco.javacpp-presets:mkl:2018.3-1.4.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/mkl/2018.3-1.4.2/4b22bfde22e0a1b44043593198f986e113b9b33a/mkl-2018.3-1.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/mkl/2018.3-1.4.2/579170b9184ca983022ee09887deb56beeba414a/mkl-2018.3-1.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

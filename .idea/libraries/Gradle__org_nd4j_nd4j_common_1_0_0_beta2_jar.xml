@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.nd4j:nd4j-common:1.0.0-beta2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nd4j/nd4j-common/1.0.0-beta2/bf85cec42a0e45d018865f4ce436ac612f368300/nd4j-common-1.0.0-beta2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nd4j/nd4j-common/1.0.0-beta2/365b90bdf35076ef121c69b4f2b7df78a017b03/nd4j-common-1.0.0-beta2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

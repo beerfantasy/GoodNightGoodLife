@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.bytedeco.javacpp-presets:mkl-dnn:0.15-1.4.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/mkl-dnn/0.15-1.4.2/86284a897102efdde80deb3dfbc16f8864b27fff/mkl-dnn-0.15-1.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/mkl-dnn/0.15-1.4.2/616e304e66dc3fb98adf9a6f4e33871b7c059721/mkl-dnn-0.15-1.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -16,11 +17,35 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/INDEX.LIST'
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libmuse_android.jar')
+    implementation (group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta2') {
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'opencv-platform'
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'leptonica-platform'
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'hdf5-platform'
+    }
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta2'
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta2', classifier: "android-arm64"
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'openblas', version: '0.3.0-1.4.2'
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'openblas', version: '0.3.0-1.4.2', classifier: "android-arm64"
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'opencv', version: '3.4.2-1.4.2'
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'opencv', version: '3.4.2-1.4.2', classifier: "android-arm64"
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'leptonica', version: '1.76.0-1.4.2'
+    implementation group: 'org.bytedeco.javacpp-presets', name: 'leptonica', version: '1.76.0-1.4.2', classifier: "android-arm64"
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'

@@ -1,6 +1,7 @@
 package com.kmutt.cs.goodnightgoodlife;
 
 import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -38,6 +39,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.lang.ref.WeakReference;
@@ -50,6 +53,9 @@ import java.util.List;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
+import org.deeplearning4j.util.ModelSerializer;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -77,6 +83,11 @@ public class MeasurementActivity extends AppCompatActivity {
     private BluetoothAdapter mBluetoothAdapter;
     private static final int MY_PERMISSIONS_REQUEST_BLUETOOTH = 0;
     private static final int REQUEST_ENABLE_BT = 1;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     private final double[] eegBuffer = new double[6];
     private boolean eegStale;
@@ -122,7 +133,14 @@ public class MeasurementActivity extends AppCompatActivity {
         //Init ticking
         ticking = 0;
 
-
+        try {
+            // Model importing
+            InputStream is = getResources().openRawResource(R.raw.trained_model);
+            // Model restoration
+            MultiLayerNetwork restored = ModelSerializer.restoreMultiLayerNetwork(is);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
         manager = MuseManagerAndroid.getInstance();
         manager.setContext(this);
@@ -242,8 +260,8 @@ public class MeasurementActivity extends AppCompatActivity {
                     //muse.registerDataListener(dataListener, MuseDataPacketType.EEG);
 
                     /* Choose One between these three data type*/
-                    muse.registerDataListener(dataListener, MuseDataPacketType.THETA_RELATIVE);
-                    //muse.registerDataListener(dataListener, MuseDataPacketType.THETA_ABSOLUTE);
+                    //muse.registerDataListener(dataListener, MuseDataPacketType.THETA_RELATIVE);
+                    muse.registerDataListener(dataListener, MuseDataPacketType.THETA_ABSOLUTE);
                     //muse.registerDataListener(dataListener, MuseDataPacketType.THETA_SCORE);
                     //muse.registerDataListener(dataListener, MuseDataPacketType.ACCELEROMETER);
                     muse.registerDataListener(dataListener, MuseDataPacketType.BATTERY);
@@ -473,6 +491,19 @@ public class MeasurementActivity extends AppCompatActivity {
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }else{
             Log.e("Bluetooth", "bluetooth on");
+        }
+    }
+
+    public static void verifyStoragePermission(Activity activity) {
+        // Get permission status
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission we request it
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
         }
     }
 
