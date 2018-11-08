@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuView;
@@ -158,12 +159,6 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //emo
-        moon_sleep = (ImageView) findViewById(R.id.sleep_moon);
-        moon_sleep.setVisibility(View.INVISIBLE);
-        moon_happy = (ImageView) findViewById(R.id.happy_moon);
-        moon_happy.setVisibility(View.INVISIBLE);
-
         //drawer toggle
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerList = (NavigationView) findViewById(R.id.nav_view);
@@ -206,7 +201,7 @@ public class HomeActivity extends AppCompatActivity
         Calendar calendar = Calendar.getInstance();
         currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
         textViewDate = findViewById(R.id.text_view_date);
-        textViewDate.setText("Today : " + currentDate);
+        textViewDate.setText("" + currentDate);
 
 
 
@@ -299,9 +294,13 @@ public class HomeActivity extends AppCompatActivity
                                     current_date = dateOfSleep;
                                     current_deep_sleep = minutes;
                                     long_DSD = Long.parseLong(current_deep_sleep);
-                                    DSD.setText("Deep Sleep Duration : " + current_deep_sleep + " minutes");
+                                    long mod_DSD = long_DSD%60;
+                                    long hour_DSD = long_DSD/60;
+                                    DSD.setText(hour_DSD + " Hr. " + mod_DSD + " m.");
                                     current_sleep = (long) sleepObject.get("minutesAsleep");
-                                    LNSD.setText("Last Night Sleep Duration : " + current_sleep + " minutes");
+                                    long mod_LNSD = current_sleep%60;
+                                    long hour_LNSD = current_sleep/60;
+                                    LNSD.setText(hour_LNSD + " Hr. " +mod_LNSD + " m.");
 
                                     //Calculate Graph
                                     deep_sleep_per = (long_DSD*100)/current_sleep;
@@ -373,15 +372,6 @@ public class HomeActivity extends AppCompatActivity
                         }
                     }
                 });
-                //set emo visible
-                if (deep_sleep_per <= 20 && deep_sleep_per != 0) {
-                    moon_sleep.setVisibility(View.VISIBLE);
-                    moon_happy.setVisibility(View.INVISIBLE);
-                }
-                else if (deep_sleep_per > 20 && deep_sleep_per != 0) {
-                    moon_sleep.setVisibility(View.INVISIBLE);
-                    moon_happy.setVisibility(View.VISIBLE);
-                }
                 urlConnectionThread.start();
             }
         });

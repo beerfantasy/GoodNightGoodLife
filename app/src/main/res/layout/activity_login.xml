@@ -7,77 +7,111 @@
     android:background="@drawable/bg"
     tools:context=".Login">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="340sp"
+        android:layout_height="79sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="239sp"
+        android:alpha="0.24"
+        app:srcCompat="@drawable/input_bg" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="340sp"
+        android:layout_height="79sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="147sp"
+        android:alpha="0.24"
+        app:srcCompat="@drawable/input_bg" />
+
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="64sp"
-        android:layout_height="49sp"
-        android:layout_below="@+id/imageView7"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="40sp"
+        android:layout_width="36sp"
+        android:layout_height="38sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="259sp"
+        android:layout_marginStart="55sp"
         app:srcCompat="@drawable/username" />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="288sp"
+        android:layout_width="241sp"
         android:layout_height="56sp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_marginEnd="27sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="250sp"
+        android:layout_marginStart="10sp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:background="@android:color/transparent"
         android:backgroundTint="#ffff"
         android:ems="10"
+        android:fontFamily="@font/caviardreams"
         android:inputType="textPersonName"
         android:textColor="#ffff"
-        android:textCursorDrawable="@android:color/white"/>
+        android:textSize="20sp"
+        android:textCursorDrawable="@android:color/white" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="64sp"
-        android:layout_height="48sp"
-        android:layout_below="@+id/imageView3"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="30sp"
+        android:layout_width="36sp"
+        android:layout_height="38sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_marginBottom="168sp"
         app:srcCompat="@drawable/pass" />
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="285sp"
+        android:layout_width="241sp"
         android:layout_height="56sp"
-        android:layout_alignStart="@+id/editText"
-        android:layout_alignTop="@+id/imageView5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="159sp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:background="@android:color/transparent"
         android:backgroundTint="#ffff"
+        android:layout_marginStart="10sp"
         android:ems="10"
+        android:fontFamily="@font/caviardreams"
         android:inputType="textPassword"
+        android:textSize="20sp"
         android:textColor="#ffff"
-        android:textCursorDrawable="@android:color/white"/>
+        android:textCursorDrawable="@android:color/white" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="match_parent"
-        android:layout_height="230sp"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginTop="115sp"
+        android:layout_width="291sp"
+        android:layout_height="184sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54sp"
         app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/signin"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="144sp"
-        android:layout_height="53sp"
+        android:layout_width="333sp"
+        android:layout_height="55sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150sp"
-        android:background="@drawable/button"
+        android:layout_marginBottom="64sp"
+        android:background="@drawable/signin_button"
+        android:fontFamily="@font/caviardreams_bold"
         android:text="Sign In"
-        android:textColor="#ffff" />
+        android:textColor="#ffff"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/reg"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/signin"
+        android:layout_marginBottom="37sp"
+        android:fontFamily="@font/caviardreams"
         android:text="If you don't have any account, please"
         android:textColor="#ffff"
         android:textSize="15sp" />
@@ -87,11 +121,24 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="61dp"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25sp"
+        android:fontFamily="@font/caviardreams_bold"
         android:text="Sign Up"
-        android:textColor="#efe575" />
+        android:textColor="#51abcf" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="258sp"
+        android:textColor="@android:color/white"
+        android:text="Good Night Good Life"
+        android:textSize="25sp"
+        android:fontFamily="@font/caviardreams" />
 
 
 </RelativeLayout>

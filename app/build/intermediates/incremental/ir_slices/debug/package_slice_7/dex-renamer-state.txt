@@ -1,4 +1,4 @@
-#Wed Oct 31 00:22:55 ICT 2018
-base.0=/Users/suppawitsatitsongtam/Documents/GitHub/GoodNightGoodLife/app/build/intermediates/transforms/dexMerger/debug/7
+#Thu Nov 08 13:29:49 ICT 2018
+base.0=C\:\\Users\\New\\Documents\\Git\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
 path.0=classes.dex
 renamed.0=classes.dex
