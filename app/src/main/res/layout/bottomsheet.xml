@@ -23,6 +23,7 @@
         android:gravity="center_vertical"/>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choose">
@@ -36,5 +37,14 @@
 
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_alignBottom="@+id/choose"
+        android:layout_alignEnd="@+id/scrollView"
+        android:layout_marginBottom="5sp"
+        android:background="@drawable/add" />
 
 </RelativeLayout>

@@ -48,7 +48,7 @@
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="251dp"
+                android:layout_height="260sp"
                 android:layout_below="@+id/text_view_date"
                 android:layout_marginBottom="10sp"
                 android:layout_marginEnd="10sp"
@@ -118,9 +118,9 @@
 
             <Button
                 android:id="@+id/refresh"
-                android:layout_width="74dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="4dp"
+                android:layout_width="74sp"
+                android:layout_height="34sp"
+                android:layout_marginStart="4sp"
                 android:layout_marginTop="67sp"
                 android:layout_toEndOf="@+id/text_view_date"
                 android:background="@drawable/but"

@@ -804,6 +804,7 @@ drawable actionbar_bg
 drawable activities
 drawable activity
 drawable activity_logo
+drawable add
 drawable auth_button
 drawable avd_hide_password
 drawable avd_show_password
@@ -1489,6 +1490,7 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style MyActionBar
+style MyDialogTheme
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat

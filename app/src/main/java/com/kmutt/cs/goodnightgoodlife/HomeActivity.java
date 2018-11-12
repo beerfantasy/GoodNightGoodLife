@@ -1,6 +1,8 @@
 package com.kmutt.cs.goodnightgoodlife;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,11 +20,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -99,7 +103,7 @@ public class HomeActivity extends AppCompatActivity
     float sleep[] = new float[2];
     String label[] = {"Deep Sleep" ,"Other stages"};
     public static final int[] CHART_COLORS = {
-            Color.rgb(24,154,211), Color.rgb(100, 152, 182)
+            Color.rgb(0,80,115), Color.rgb(100, 152, 182)
     };
 
     //drawer
@@ -115,6 +119,8 @@ public class HomeActivity extends AppCompatActivity
     ActivityInListAdapter activityInListAdapter;
     List<ActivityInList> activityList;
     List<String> activity;
+    Button add;
+    private String m_Text = "";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -173,6 +179,47 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
 
         //bottomsheet
+
+        add = (Button) findViewById(R.id.add_button);
+
+        final Intent intent = new Intent(getApplicationContext(),MeasurementActivity.class);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this, R.style.MyDialogTheme);
+                builder.setTitle("Add activity");
+
+                // Set up the input
+                final EditText input = new EditText(HomeActivity.this);
+                // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                input.setTextColor(Color.BLACK);
+                builder.setView(input);
+
+                // Set up the buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_Text = input.getText().toString();
+                        activity.add(m_Text);
+
+                        finish();
+                        startActivity(getIntent());
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
         bottomsheetlayout = (RelativeLayout) findViewById(R.id.bottomsheet);
         activities = (Button) findViewById(R.id.activities);
         bottomsheetbehavior = BottomSheetBehavior.from(bottomsheetlayout);
@@ -192,7 +239,7 @@ public class HomeActivity extends AppCompatActivity
         activity.add("Yoga");
         activity.add("Massage");
 
-        //if(!m_Text.matches("")) Log.e(TAG, "ADDDDDD !!!"); //activity.add(m_Text);
+        if(!m_Text.matches("")) Log.e(TAG, "ADDDDDD !!!"); //activity.add(m_Text);
 
         activityList = new ArrayList<>();
 
