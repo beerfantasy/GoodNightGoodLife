@@ -22,222 +22,233 @@
 
         </android.support.design.widget.NavigationView>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg">
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/text_view_date"
-            android:layout_width="312sp"
-            android:layout_height="50sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/imageView8"
-            android:layout_marginTop="61sp"
-            android:fontFamily="@font/caviardreams"
-            android:gravity="center_vertical"
-            android:text="Date"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/chart"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="200sp"
-            android:layout_below="@+id/text_view_date"
-            android:layout_margin="10sp">
-        </com.github.mikephil.charting.charts.PieChart>
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="381sp"
-            android:layout_height="115sp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="238sp"
-            app:srcCompat="@drawable/bg_text" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="381sp"
-            android:layout_height="132sp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="89sp"
-            app:srcCompat="@drawable/bg_text" />
-
-        <TextView
-            android:id="@+id/text_LNSD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="303sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="00 Hr. 00 m."
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/text_DSD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView9"
-            android:layout_toStartOf="@+id/textView6"
-            android:fontFamily="@font/caviardreams"
-            android:text="00 Hr. 00 m."
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
-
-        <Button
-            android:id="@+id/activities"
-            android:layout_width="200sp"
-            android:layout_height="60sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:background="@android:color/black"
-            android:stateListAnimator="@null"/>
-
-        <Button
-            android:id="@+id/sleeptrack"
-            android:layout_width="200sp"
-            android:layout_height="60sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/black"
-            android:stateListAnimator="@null"/>
-
-        <Button
-            android:id="@+id/refresh"
-            android:layout_width="78sp"
-            android:layout_height="38sp"
-            android:layout_marginTop="67sp"
-            android:layout_toEndOf="@+id/text_view_date"
-            android:background="@drawable/signup_button"
-            android:fontFamily="@font/caviardreams_bold"
-            android:text="Sync" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="116sp"
-            android:layout_height="74sp"
-
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/logo_cen" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="12sp"
-            android:layout_marginStart="20sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="Activity"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="37sp"
-            android:layout_height="40sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="5sp"
-            android:layout_marginStart="105sp"
-            app:srcCompat="@drawable/activity_logo" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="12sp"
-            android:layout_marginEnd="7sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="Tracking"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="45sp"
-            android:layout_height="45sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="5sp"
-            android:layout_marginEnd="105sp"
-            app:srcCompat="@drawable/track_logo" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="108sp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/text_LNSD"
-            android:layout_toStartOf="@+id/text_LNSD"
-            android:fontFamily="@font/caviardreams"
-            android:text="Sleep Duration : "
-            android:textColor="@android:color/white" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="28sp"
-            android:layout_height="24sp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="262sp"
-            android:layout_marginStart="39sp"
-            app:srcCompat="@drawable/hint" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="299sp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="260sp"
-            android:layout_marginEnd="35sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="You sleep more than 8 hr. and more than 86 % of other users"
-            android:textColor="@android:color/white"
-            android:textSize="13sp"/>
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView7"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="170sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="Deep Sleep Duration : "
-            android:textColor="@android:color/white" />
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="28sp"
-            android:layout_height="24sp"
-            android:layout_alignStart="@+id/imageView10"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="122sp"
-            app:srcCompat="@drawable/hint" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="299sp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="120sp"
-            android:layout_marginEnd="35sp"
-            android:fontFamily="@font/caviardreams"
-            android:text="You was getting in deep sleep 16% of your sleep duration and less than 84% of other users"
-            android:textColor="@android:color/white"
-            android:textSize="13sp"/>
+            android:layout_height="match_parent"
+            android:background="@drawable/bg">
 
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/text_view_date"
+                android:layout_width="312sp"
+                android:layout_height="50sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/imageView8"
+                android:layout_marginTop="61sp"
+                android:fontFamily="@font/caviardreams"
+                android:gravity="center_vertical"
+                android:text="Date"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="251dp"
+                android:layout_below="@+id/text_view_date"
+                android:layout_marginBottom="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="10sp"></com.github.mikephil.charting.charts.PieChart>
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="381sp"
+                android:layout_height="115sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="218sp"
+                app:srcCompat="@drawable/bg_text" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="381sp"
+                android:layout_height="132sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="79sp"
+                app:srcCompat="@drawable/bg_text" />
+
+            <TextView
+                android:id="@+id/text_LNSD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="283sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="00 Hr. 00 m."
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/text_DSD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView9"
+                android:layout_toStartOf="@+id/textView6"
+                android:fontFamily="@font/caviardreams"
+                android:text="00 Hr. 00 m."
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/activities"
+                android:layout_width="200sp"
+                android:layout_height="60sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:background="@android:color/black"
+                android:stateListAnimator="@null"/>
+
+            <Button
+                android:id="@+id/sleeptrack"
+                android:layout_width="200sp"
+                android:layout_height="60sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/black"
+                android:stateListAnimator="@null"/>
+
+            <Button
+                android:id="@+id/refresh"
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="67sp"
+                android:layout_toEndOf="@+id/text_view_date"
+                android:background="@drawable/but"
+                android:fontFamily="@font/caviardreams_bold"
+                android:text="Sync" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="116sp"
+                android:layout_height="74sp"
+
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/logo_cen" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="12sp"
+                android:layout_marginStart="20sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="Activity"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="37sp"
+                android:layout_height="40sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="105sp"
+                app:srcCompat="@drawable/activity_logo" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="12sp"
+                android:layout_marginEnd="7sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="Tracking"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="5sp"
+                android:layout_marginEnd="105sp"
+                app:srcCompat="@drawable/track_logo" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="108sp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/text_LNSD"
+                android:layout_toStartOf="@+id/text_LNSD"
+                android:fontFamily="@font/caviardreams"
+                android:text="Sleep Duration : "
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="28sp"
+                android:layout_height="24sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="242sp"
+                android:layout_marginStart="39sp"
+                app:srcCompat="@drawable/hint" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="299sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="240sp"
+                android:layout_marginEnd="35sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="You sleep more than 8 hr. and more than 86 % of other users"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView7"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="160sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="Deep Sleep Duration : "
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="28sp"
+                android:layout_height="24sp"
+                android:layout_alignStart="@+id/imageView10"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="112sp"
+                app:srcCompat="@drawable/hint" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="299sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="110sp"
+                android:layout_marginEnd="35sp"
+                android:fontFamily="@font/caviardreams"
+                android:text="You was getting in deep sleep 16% of your sleep duration and less than 84% of other users"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"/>
+
+        </RelativeLayout>
+    <include layout="@layout/bottomsheet" />
+    </android.support.design.widget.CoordinatorLayout>
+
 </android.support.v4.widget.DrawerLayout>

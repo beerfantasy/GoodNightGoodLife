@@ -5,125 +5,55 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
-        <TextView
-            android:id="@+id/text_DST"
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:layout_marginTop="20sp"
-            android:text="Deep Sleep Time"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:textAlignment="center"/>
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="380dp"
+            android:layout_height="420dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            app:srcCompat="@drawable/bg_chart" />
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/bar_chart"
-            android:layout_below="@id/text_DST"
-            android:layout_width="match_parent"
-            android:layout_height="285sp"
-            android:layout_marginTop="20sp">
-        </com.github.mikephil.charting.charts.BarChart>
-
-        <TextView
-            android:id="@+id/avg"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/bar_chart"
-            android:layout_marginTop="5sp"
-            android:text="Average"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:gravity="center_vertical"/>
+            android:layout_width="350sp"
+            android:layout_height="270dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="100dp"></com.github.mikephil.charting.charts.BarChart>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/avg">
+            android:layout_below="@id/imageView17"
+            android:layout_marginTop="10sp">
                 <FrameLayout
                     android:id="@+id/scroll_view_frame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                        <TextView
-                            android:id="@+id/day1"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentEnd="true"
-                            android:background="#06FFFFFF"
-                            android:gravity="center_vertical"
-                            android:text="Day1"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/day2"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="65sp"
-                            android:text="Day2"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
-                        <TextView
-                            android:id="@+id/day3"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="130sp"
-                            android:text="Day3"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
-                        <TextView
-                            android:id="@+id/day4"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="195sp"
-                            android:text="Day4"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
-                        <TextView
-                            android:id="@+id/day5"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="260sp"
-                            android:text="Day5"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
-                        <TextView
-                            android:id="@+id/day6"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="325sp"
-                            android:text="Day6"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
-                        <TextView
-                            android:id="@+id/day7"
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginTop="390sp"
-                            android:text="Day7"
-                            android:textColor="@android:color/white"
-                            android:textSize="18sp"
-                            android:gravity="center_vertical"
-                            android:background="#06FFFFFF"/>
-
                 </FrameLayout>
 
         </ScrollView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bar_chart"
+            android:layout_marginTop="10sp"
+            android:layout_centerHorizontal="true"
+            android:text="Deep Sleep Duration for Each Day"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/caviardreams_bold"/>
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="5sp"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>

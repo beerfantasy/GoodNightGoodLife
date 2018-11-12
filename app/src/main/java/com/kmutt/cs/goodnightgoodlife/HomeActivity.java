@@ -8,6 +8,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +16,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.design.widget.NavigationView;
@@ -95,13 +99,22 @@ public class HomeActivity extends AppCompatActivity
     float sleep[] = new float[2];
     String label[] = {"Deep Sleep" ,"Other stages"};
     public static final int[] CHART_COLORS = {
-            Color.rgb(16, 41, 109), Color.rgb(64, 108, 229)
+            Color.rgb(24,154,211), Color.rgb(100, 152, 182)
     };
 
     //drawer
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView mDrawerList;
+
+    //bottom sheet
+    private RelativeLayout bottomsheetlayout;
+    private BottomSheetBehavior bottomsheetbehavior;
+    private Button activities;
+    RecyclerView recyclerView;
+    ActivityInListAdapter activityInListAdapter;
+    List<ActivityInList> activityList;
+    List<String> activity;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -159,6 +172,43 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //bottomsheet
+        bottomsheetlayout = (RelativeLayout) findViewById(R.id.bottomsheet);
+        activities = (Button) findViewById(R.id.activities);
+        bottomsheetbehavior = BottomSheetBehavior.from(bottomsheetlayout);
+        bottomsheetbehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        activities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomsheetbehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        } );
+
+        activity = new ArrayList<>();
+        activity.add("Read Book");
+        activity.add("Listen Music");
+        activity.add("Meditation");
+        activity.add("Yoga");
+        activity.add("Massage");
+
+        //if(!m_Text.matches("")) Log.e(TAG, "ADDDDDD !!!"); //activity.add(m_Text);
+
+        activityList = new ArrayList<>();
+
+        recyclerView = (RecyclerView) findViewById(R.id.activity_recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        for(String s:activity) {
+            activityList.add(new ActivityInList(s));
+            Log.e(TAG,s);
+        }
+
+        ActivityInListAdapter adapter = new ActivityInListAdapter(this, activityList);
+        recyclerView.setAdapter(adapter);
+
+
         //drawer toggle
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerList = (NavigationView) findViewById(R.id.nav_view);
@@ -205,14 +255,14 @@ public class HomeActivity extends AppCompatActivity
 
 
 
-        Button button1 = (Button)findViewById(R.id.activities);
+        /*Button button1 = (Button)findViewById(R.id.activities);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),ActivityActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         Button button2 = (Button)findViewById(R.id.sleeptrack);
         button2.setOnClickListener(new View.OnClickListener() {

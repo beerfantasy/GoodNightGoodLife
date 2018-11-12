@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Nov 08 14:28:46 ICT 2018
+#Sun Nov 11 15:46:15 ICT 2018
 60.set=NATIVE_RESOURCE
 52.set=NATIVE_RESOURCE
 53.base=C\:\\Users\\New\\Documents\\Git\\GoodNightGoodLife\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0

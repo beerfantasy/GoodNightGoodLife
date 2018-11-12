@@ -808,7 +808,9 @@ drawable auth_button
 drawable avd_hide_password
 drawable avd_show_password
 drawable bg
+drawable bg_chart
 drawable bg_text
+drawable but
 drawable button
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -829,6 +831,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable deepsleep
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -836,6 +839,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable drawer
+drawable duration
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable header
@@ -864,6 +868,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pass
+drawable relax
 drawable rotate
 drawable settings
 drawable signin_button
@@ -873,8 +878,10 @@ drawable sleeptrack
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable track_logo
+drawable tran
 drawable user
 drawable username
+font calibri
 font caviardreams
 font caviardreams_bold
 id ALT
@@ -909,6 +916,7 @@ id activity_chooser_view_content
 id activity_drawer
 id activity_list
 id activity_list_recyclerView
+id activity_recyclerView
 id activity_text
 id add
 id add_button
@@ -921,7 +929,6 @@ id always
 id async
 id auth
 id auto
-id avg
 id avg_relax
 id avg_relax_list
 id avg_relax_list_num
@@ -930,6 +937,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id bottomsheet
 id buttonPanel
 id button_finish
 id button_start
@@ -940,6 +948,7 @@ id center_vertical
 id chains
 id chart
 id checkbox
+id choose
 id chronometer
 id clip_horizontal
 id clip_vertical
@@ -951,14 +960,7 @@ id coordinator
 id custom
 id customPanel
 id dark
-id date_list
-id day1
-id day2
-id day3
-id day4
-id day5
-id day6
-id day7
+id day
 id decor_content_parent
 id deepsleep_list
 id deepsleep_list_num
@@ -1004,6 +1006,13 @@ id image
 id imageView
 id imageView10
 id imageView11
+id imageView12
+id imageView13
+id imageView14
+id imageView15
+id imageView16
+id imageView17
+id imageView18
 id imageView2
 id imageView3
 id imageView4
@@ -1031,6 +1040,7 @@ id media_actions
 id message
 id middle
 id mini
+id month
 id multiply
 id nav_view
 id navigation_header_container
@@ -1122,7 +1132,6 @@ id textView7
 id textView8
 id textView9
 id text_DSD
-id text_DST
 id text_LNSD
 id text_input_password_toggle
 id text_login
@@ -1152,6 +1161,7 @@ id wide
 id withText
 id wrap
 id wrap_content
+id year
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -1198,6 +1208,7 @@ layout activity_login
 layout activity_measurement
 layout activity_signup
 layout activity_sleeptrack
+layout bottomsheet
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

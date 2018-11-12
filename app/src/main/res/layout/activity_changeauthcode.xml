@@ -17,15 +17,16 @@
         android:inputType="textPersonName"
         android:hint="Authorization Code"
         android:textColorHint="#a0a2a5"
+        android:fontFamily="@font/caviardreams"
         android:backgroundTint="@android:color/white"/>
 
     <Button
         android:id="@+id/saveAuth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="102dp"
+        android:layout_height="42dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="211sp"
-        android:text="Save"
-        android:background="@drawable/signup_button"/>
+        android:background="@drawable/but"
+        android:text="Save" />
 </RelativeLayout>

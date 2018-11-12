@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="160sp"
+        android:layout_height="wrap_content"
         android:layout_margin="5sp"
-        card_view:cardBackgroundColor="#10FFFFFF">
+        card_view:cardBackgroundColor="#20000000">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -17,89 +18,155 @@
             android:padding="8sp">
 
             <TextView
-                android:id="@+id/date_list"
-                android:layout_width="match_parent"
-                android:layout_height="50sp"
-                android:textSize="24sp"
-                android:layout_marginTop="5sp"
+                android:id="@+id/day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="11sp"
+                android:fontFamily="@font/caviardreams_bold"
+                android:text="28"
+                android:textColor="#7f7f7f"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="12.5sp"
+                android:layout_marginTop="40sp"
+                android:fontFamily="@font/caviardreams_bold"
                 android:gravity="center_vertical"
-                android:text="Date"
-                android:textColor="@android:color/white"/>
+                android:text="Aug"
+                android:textColor="#7f7f7f"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="14sp"
+                android:layout_marginTop="58sp"
+                android:fontFamily="@font/caviardreams_bold"
+                android:gravity="center_vertical"
+                android:text="2018"
+                android:textColor="#7f7f7f"
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/activity_list"
-                android:layout_width="214dp"
-                android:layout_height="43dp"
-                android:layout_below="@+id/date_list"
-                android:layout_marginTop="5sp"
-                android:gravity="center_vertical"
-                android:text="Activity : "
-                android:textColor="#bdcfef"
-                android:textSize="18sp" />
+                android:layout_width="214sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/day"
+                android:layout_marginStart="71sp"
+                android:fontFamily="@font/caviardreams_bold"
+                android:text="Activity"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/duration_list"
-                android:layout_width="168dp"
-                android:layout_height="42dp"
-                android:layout_alignTop="@+id/activity_list"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_list"
+                android:layout_marginStart="5sp"
+                android:layout_toEndOf="@+id/imageView12"
+                android:fontFamily="@font/caviardreams"
                 android:gravity="center_vertical"
                 android:text="Duration : "
-                android:textColor="#bdcfef"
+                android:textColor="#7f7f7f"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/avg_relax_list"
                 android:layout_width="wrap_content"
-                android:layout_height="45sp"
-                android:layout_alignStart="@+id/date_list"
-                android:layout_below="@+id/activity_list"
-                android:layout_marginTop="5sp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/duration_list"
+                android:layout_below="@+id/deepsleep_list"
+                android:fontFamily="@font/caviardreams"
                 android:gravity="center_vertical"
                 android:text="Avg. Relax : "
-                android:textColor="#bdcfef"
+                android:layout_marginTop="2sp"
+                android:textColor="#7f7f7f"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/avg_relax_list_num"
-                android:layout_width="90dp"
-                android:layout_height="38dp"
-                android:layout_below="@+id/activity_list"
-                android:layout_alignEnd="@+id/activity_list"
-                android:layout_marginTop="5sp"
-                android:layout_marginEnd="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/avg_relax_list"
                 android:layout_toEndOf="@+id/avg_relax_list"
+                android:fontFamily="@font/caviardreams"
                 android:gravity="center_vertical"
-                android:text="Avg.Relax"
-                android:textColor="#bdcfef"
+                android:text="Relax"
+                android:textColor="#7f7f7f"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/deepsleep_list"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_below="@+id/activity_list"
+                android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/duration_list"
-                android:layout_marginStart="-28dp"
-                android:layout_marginTop="5sp"
+                android:layout_below="@+id/duration_list"
+                android:layout_marginTop="2sp"
+                android:fontFamily="@font/caviardreams"
                 android:gravity="center_vertical"
-                android:text="Deep Sleep: "
-                android:textColor="#bdcfef"
+                android:text="Deep Sleep : "
+                android:textColor="#7f7f7f"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/deepsleep_list_num"
-                android:layout_width="79sp"
-                android:layout_height="45sp"
-                android:layout_marginTop="5sp"
-                android:layout_alignEnd="@+id/date_list"
-                android:layout_below="@+id/activity_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/deepsleep_list"
                 android:layout_toEndOf="@+id/deepsleep_list"
-                android:gravity="center_vertical"
+                android:fontFamily="@font/caviardreams"
                 android:text="Deepsleep"
-                android:textColor="#bdcfef"
+                android:textColor="#7f7f7f"
                 android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="15sp"
+                android:layout_height="15sp"
+                android:layout_alignStart="@+id/activity_list"
+                android:layout_below="@+id/activity_list"
+                android:layout_marginTop="5sp"
+                app:srcCompat="@drawable/duration" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="18sp"
+                android:layout_height="18sp"
+                android:layout_alignEnd="@+id/imageView12"
+                android:layout_below="@+id/imageView12"
+                android:layout_marginTop="6sp"
+                android:layout_marginEnd="2sp"
+                app:srcCompat="@drawable/deepsleep" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="15sp"
+                android:layout_height="15sp"
+                android:layout_alignStart="@+id/activity_list"
+                android:layout_alignTop="@+id/avg_relax_list"
+                android:layout_marginTop="4sp"
+                android:layout_marginStart="-2sp"
+                app:srcCompat="@drawable/relax" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="108dp"
+                android:layout_height="45dp"
+                android:layout_alignTop="@+id/day"
+                android:layout_toEndOf="@+id/activity_list"
+                app:srcCompat="@drawable/tran"
+                android:background="@android:color/transparent"/>
 
 
         </RelativeLayout>

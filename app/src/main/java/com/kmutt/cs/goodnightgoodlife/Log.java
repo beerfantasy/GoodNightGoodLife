@@ -1,7 +1,9 @@
 package com.kmutt.cs.goodnightgoodlife;
 
 public class Log {
-    String date;
+    String day;
+    String month;
+    String year;
     String activity;
     float relaxation;
     float deepsleep;
@@ -15,16 +17,26 @@ public class Log {
         this.duration = dr;
     }*/
 
-    public Log(String d, String a, float r, String dr, float ds){
-        this.date = d;
+    public Log(String day, String month, String year, String a, float r, String dr, float ds){
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.activity = a;
         this.relaxation = r;
         this.deepsleep = ds;
         this.duration = dr;
     }
 
-    public String getDate() {
-        return date;
+    public String getDay() {
+        return day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public String getYear() {
+        return year;
     }
 
     public String getActivity() {
